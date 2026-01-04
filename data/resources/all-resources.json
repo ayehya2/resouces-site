@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-03T00:00:00Z",
+  "totalResources": 1,
+  "resources": [
+    {
+      "id": "ublock-origin",
+      "title": "uBlock Origin",
+      "shortDescription": "Efficient ad blocker for browsers with minimal resource usage",
+      "longDescription": "uBlock Origin is a free, open-source ad content blocker. Unlike other blockers, it's easy on memory and CPU while being capable of loading and enforcing thousands of filters. Features include advanced blocking capabilities, extensive filter lists, and no acceptable ads program. It supports multiple browsers and offers granular control over what gets blocked.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://ublockorigin.com",
+          "label": "Official Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/gorhill/uBlock",
+          "label": "GitHub Repository"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/gorhill/uBlock/wiki",
+          "label": "Documentation"
+        }
+      ],
+      "categories": ["privacy-anonymity", "software", "useful-websites"],
+      "tags": ["adblock", "privacy", "opensource", "free", "browser-extension", "no-signup"],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-03T00:00:00Z",
+      "lastChecked": "2026-01-03T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": ["web", "browser"],
+        "license": "GPLv3",
+        "pricing": "free",
+        "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": false
+      }
+    }
+  ]
+}

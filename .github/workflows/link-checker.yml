@@ -1,0 +1,36 @@
+# Link Checker Workflow
+name: Link Status Checker
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: |
+          cd scripts
+          npm install
+      
+      - name: Check all links
+        run: |
+          cd scripts
+          node check-links.js
+      
+      - name: Commit status updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/resources/
+          git commit -m "Auto-update: Link status check" || echo "No changes to commit"
+          git push

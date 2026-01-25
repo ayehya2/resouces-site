@@ -1,6 +1,6 @@
-{
+﻿{
   "version": "1.0.0",
-  "lastUpdated": "2026-01-25T01:20:00Z",
+  "lastUpdated": "2026-01-25T01:27:00Z",
   "totalResources": 15,
   "resources": [
     {
@@ -38,9 +38,9 @@
       "dateAdded": "2026-01-03T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 4250,
-        "downvotes": 12,
-        "workingCount": 150,
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
         "brokenCount": 0
       },
       "metadata": {
@@ -79,8 +79,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 12500,
-        "downvotes": 340
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "pricing": "freemium",
@@ -120,8 +120,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 8900,
-        "downvotes": 45
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -169,8 +169,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 3200,
-        "downvotes": 12
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -215,8 +215,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 15400,
-        "downvotes": 89
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -260,8 +260,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 21000,
-        "downvotes": 120
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -305,8 +305,8 @@
       "dateAdded": "2026-01-25T01:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 8500,
-        "downvotes": 42
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -348,8 +348,8 @@
       "dateAdded": "2026-01-25T01:10:00Z",
       "status": "active",
       "community": {
-        "upvotes": 45000,
-        "downvotes": 210
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -387,8 +387,8 @@
       "dateAdded": "2026-01-25T01:15:00Z",
       "status": "active",
       "community": {
-        "upvotes": 78000,
-        "downvotes": 150
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "pricing": "freemium",
@@ -428,8 +428,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 6400,
-        "downvotes": 21
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -473,8 +473,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 9100,
-        "downvotes": 15
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -510,8 +510,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 12400,
-        "downvotes": 65
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -553,8 +553,8 @@
       "dateAdded": "2026-01-25T00:00:00Z",
       "status": "active",
       "community": {
-        "upvotes": 18200,
-        "downvotes": 95
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "platform": [
@@ -591,8 +591,8 @@
       "dateAdded": "2026-01-25T01:20:00Z",
       "status": "active",
       "community": {
-        "upvotes": 95000,
-        "downvotes": 1200
+        "upvotes": 0,
+        "downvotes": 0
       },
       "metadata": {
         "pricing": "free",

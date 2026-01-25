@@ -91,6 +91,7 @@ export interface ResourceStore {
     setSearchQuery: (query: string) => void;
     setViewMode: (mode: 'minimal' | 'detailed') => void;
     voteResource: (id: string, type: 'up' | 'down') => void;
+    syncVotes: () => Promise<void>;
     toggleDarkMode: () => void;
     clearFilters: () => void;
 }

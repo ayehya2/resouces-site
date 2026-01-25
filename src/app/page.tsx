@@ -22,6 +22,9 @@ export default function HomePage() {
             setResources(resourcesData);
             setCategories(categoriesData);
             setTags(tagsData);
+
+            // Sync global votes
+            useResourceStore.getState().syncVotes();
         };
 
         loadData();

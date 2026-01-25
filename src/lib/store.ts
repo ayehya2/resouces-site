@@ -38,7 +38,8 @@ export const useResourceStore = create<ResourceStore>()(
 
             setViewMode: (viewMode: 'minimal' | 'detailed') => set({ viewMode }),
 
-            voteResource: (id: string, type: 'up' | 'down') =>
+            voteResource: async (id: string, type: 'up' | 'down') => {
+                // Optimistic update
                 set((state) => ({
                     resources: state.resources.map((r) =>
                         r.id === id
@@ -52,7 +53,44 @@ export const useResourceStore = create<ResourceStore>()(
                             }
                             : r
                     ),
-                })),
+                }));
+
+                try {
+                    const response = await fetch('/api/vote', {
+                        method: 'POST',
+                        body: JSON.stringify({ resourceId: id, type }),
+                    });
+
+                    if (!response.ok) {
+                        const error = await response.json();
+                        console.error('Vote failed:', error);
+                        // Revert on error could be added here if needed
+                    }
+                } catch (error) {
+                    console.error('Vote connection error:', error);
+                }
+            },
+
+            syncVotes: async () => {
+                try {
+                    const response = await fetch('/api/resources/votes');
+                    if (response.ok) {
+                        const { votes } = await response.json();
+                        set((state) => ({
+                            resources: state.resources.map((r) => ({
+                                ...r,
+                                community: {
+                                    ...r.community!,
+                                    upvotes: votes[r.id]?.upvotes ?? r.community?.upvotes ?? 0,
+                                    downvotes: votes[r.id]?.downvotes ?? r.community?.downvotes ?? 0,
+                                },
+                            })),
+                        }));
+                    }
+                } catch (error) {
+                    console.error('Failed to sync votes:', error);
+                }
+            },
 
             toggleDarkMode: () =>
                 set((state) => {

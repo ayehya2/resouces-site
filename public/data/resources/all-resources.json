@@ -1,0 +1,603 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-25T01:20:00Z",
+  "totalResources": 15,
+  "resources": [
+    {
+      "id": "ublock-origin",
+      "title": "uBlock Origin",
+      "shortDescription": "Efficient ad blocker for browsers with minimal resource usage",
+      "longDescription": "uBlock Origin is a free, open-source ad content blocker. Unlike other blockers, it's easy on memory and CPU while being capable of loading and enforcing thousands of filters. It supports multiple browsers and offers granular control over what gets blocked.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://ublockorigin.com",
+          "label": "Official Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/gorhill/uBlock",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "privacy-anonymity",
+        "software",
+        "useful-websites"
+      ],
+      "tags": [
+        "adblock",
+        "privacy",
+        "opensource",
+        "free",
+        "browser-extension",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-03T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 4250,
+        "downvotes": 12,
+        "workingCount": 150,
+        "brokenCount": 0
+      },
+      "metadata": {
+        "platform": [
+          "web",
+          "browser"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "chatgpt",
+      "title": "ChatGPT",
+      "shortDescription": "Advanced AI language model for conversation and automation",
+      "longDescription": "OpenAI's ChatGPT is a state-of-the-art language model designed for natural language interactions. It can assist with coding, writing, research, and complex problem-solving.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://chatgpt.com",
+          "label": "Official Site"
+        }
+      ],
+      "categories": [
+        "artificial-intelligence",
+        "useful-websites"
+      ],
+      "tags": [
+        "ai",
+        "llm",
+        "productivity",
+        "automation"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 12500,
+        "downvotes": 340
+      },
+      "metadata": {
+        "pricing": "freemium",
+        "requiresSignup": true
+      }
+    },
+    {
+      "id": "free-for-dev",
+      "title": "Free for Developers",
+      "shortDescription": "Massive list of free SaaS, PaaS, and IaaS offerings for developers",
+      "longDescription": "A comprehensive, community-driven list of software and other offerings that have free tiers for developers. Perfect for bootstrapping projects without breaking the bank.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://free-for.dev/",
+          "label": "Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/ripienaar/free-for-dev",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "github-repositories",
+        "web-development",
+        "useful-websites"
+      ],
+      "tags": [
+        "free",
+        "opensource",
+        "developer-tools",
+        "api"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 8900,
+        "downvotes": 45
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "open-meteo",
+      "title": "Open-Meteo",
+      "shortDescription": "Free weather API with high-resolution forecasts, no API key required",
+      "longDescription": "Open-Meteo is a free, open-source weather API that provides access to high-resolution weather forecast data with global coverage.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://open-meteo.com/",
+          "label": "Website"
+        },
+        {
+          "type": "documentation",
+          "url": "https://open-meteo.com/en/docs",
+          "label": "API Docs"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/open-meteo/open-meteo",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "apis",
+        "useful-websites",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "api",
+        "no-signup",
+        "opensource"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 3200,
+        "downvotes": 12
+      },
+      "metadata": {
+        "platform": [
+          "web",
+          "api"
+        ],
+        "pricing": "free",
+        "openSource": true,
+        "selfHostable": true
+      }
+    },
+    {
+      "id": "public-apis",
+      "title": "Public APIs",
+      "shortDescription": "A collective list of free APIs for use in software and web development",
+      "longDescription": "A comprehensive collection of public APIs categorized by topic, including animals, anime, art, business, food, music, and more.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://api.publicapis.org/",
+          "label": "Endpoint"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/public-apis/public-apis",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "apis",
+        "github-repositories",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "opensource",
+        "api",
+        "developer-tools"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 15400,
+        "downvotes": 89
+      },
+      "metadata": {
+        "platform": [
+          "web",
+          "api"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "roadmap-sh",
+      "title": "roadmap.sh",
+      "shortDescription": "Community-driven roadmaps, guides, and learning paths for developers",
+      "longDescription": "Interactive and comprehensive roadmaps covering various tech career paths. Each roadmap provides a visual guide showing the learning path with resources.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://roadmap.sh/",
+          "label": "Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/kamranahmedse/developer-roadmap",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development",
+        "github-repositories"
+      ],
+      "tags": [
+        "free",
+        "education",
+        "opensource",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 21000,
+        "downvotes": 120
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "kali-linux",
+      "title": "Kali Linux",
+      "shortDescription": "Leading penetration testing and security auditing Linux distribution",
+      "longDescription": "Kali Linux is an open-source, Debian-based Linux distribution geared towards various information security tasks.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://www.kali.org",
+          "label": "Website"
+        },
+        {
+          "type": "download",
+          "url": "https://www.kali.org/get-kali/",
+          "label": "Download"
+        }
+      ],
+      "categories": [
+        "cybersecurity",
+        "linux",
+        "operating-systems"
+      ],
+      "tags": [
+        "pentesting",
+        "hacking",
+        "security",
+        "linux",
+        "opensource"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T01:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 8500,
+        "downvotes": 42
+      },
+      "metadata": {
+        "platform": [
+          "desktop"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "vscode",
+      "title": "VS Code",
+      "shortDescription": "Powerful, extensible code editor for modern web development",
+      "longDescription": "Visual Studio Code is a lightweight but powerful source code editor available for Windows, macOS and Linux.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://code.visualstudio.com",
+          "label": "Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/microsoft/vscode",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "software",
+        "web-development"
+      ],
+      "tags": [
+        "editor",
+        "coding",
+        "productivity",
+        "opensource"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T01:10:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 45000,
+        "downvotes": 210
+      },
+      "metadata": {
+        "platform": [
+          "desktop"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "github",
+      "title": "GitHub",
+      "shortDescription": "The world's leading AI-powered developer platform",
+      "longDescription": "GitHub is where millions of developers shape the future of software, together. Contribute to open source and manage Git repositories.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://github.com",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "github-repositories",
+        "software",
+        "useful-websites"
+      ],
+      "tags": [
+        "git",
+        "coding",
+        "collaboration",
+        "server"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T01:15:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 78000,
+        "downvotes": 150
+      },
+      "metadata": {
+        "pricing": "freemium",
+        "requiresSignup": true
+      }
+    },
+    {
+      "id": "devdocs",
+      "title": "DevDocs",
+      "shortDescription": "Fast, offline-compatible, all-in-one API documentation browser",
+      "longDescription": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface. Includes docs for 100+ technologies.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://devdocs.io/",
+          "label": "Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/freeCodeCamp/devdocs",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development",
+        "software"
+      ],
+      "tags": [
+        "free",
+        "opensource",
+        "developer-tools",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 6400,
+        "downvotes": 21
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "free",
+        "openSource": true,
+        "selfHostable": true
+      }
+    },
+    {
+      "id": "owasp-top-10",
+      "title": "OWASP Top 10",
+      "shortDescription": "Standard awareness document for web application security risks",
+      "longDescription": "Represents a broad consensus about the most critical security risks to web applications. Essential reading for developers.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://owasp.org/www-project-top-ten/",
+          "label": "Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/OWASP/Top10",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "cybersecurity",
+        "security",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "security",
+        "education",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 9100,
+        "downvotes": 15
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "regex101",
+      "title": "Regex101",
+      "shortDescription": "Online regex tester and debugger with real-time explanation",
+      "longDescription": "A powerful online tool for building, testing, and debugging regular expressions with real-time feedback.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://regex101.com/",
+          "label": "Website"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "developer-tools",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 12400,
+        "downvotes": 65
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "freemium",
+        "requiresSignup": false
+      }
+    },
+    {
+      "id": "can-i-use",
+      "title": "Can I Use",
+      "shortDescription": "Browser compatibility tables for web technologies",
+      "longDescription": "Provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile browsers.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://caniuse.com/",
+          "label": "Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/Fyrd/caniuse",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "developer-tools",
+        "no-signup",
+        "opensource"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 18200,
+        "downvotes": 95
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "free",
+        "openSource": true
+      }
+    },
+    {
+      "id": "stackoverflow",
+      "title": "Stack Overflow",
+      "shortDescription": "The largest online community for developers to learn and share",
+      "longDescription": "The largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://stackoverflow.com",
+          "label": "Website"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "programming-languages"
+      ],
+      "tags": [
+        "learning",
+        "coding",
+        "community",
+        "q&a"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T01:20:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 95000,
+        "downvotes": 1200
+      },
+      "metadata": {
+        "pricing": "free",
+        "requiresSignup": false
+      }
+    }
+  ]
+}

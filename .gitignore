@@ -1,28 +1,40 @@
-# .gitignore
-
 # Dependencies
 node_modules/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
+.pnp
+.pnp.js
 
-# Build outputs
+# Testing
+coverage/
+
+# Next.js
 .next/
 out/
-build/
 dist/
-*.egg-info/
+build/
 
-# Environment variables
+# Production
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
 
 # IDE
 .vscode/
@@ -30,50 +42,13 @@ dist/
 *.swp
 *.swo
 *~
-.DS_Store
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Testing
-coverage/
-.nyc_output/
-*.coverage
-.pytest_cache/
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-
-# OS
-Thumbs.db
-.DS_Store
-
-# Keep .gitkeep files
-!.gitkeep
-
-# Scraper specific
-scraper/logs/*.log
-!scraper/logs/.gitkeep
-
-# Database
-*.db
-*.sqlite
-
-# Backups
-backups/
-*.backup
-*.bak
-
-# Cache
+# Misc
 .cache/
-.parcel-cache/
-.turbo/
+*.tmp
+temp/
 
-# Vercel
-.vercel
+# AI and Tools
+.gemini/
+.agent/
+brain/

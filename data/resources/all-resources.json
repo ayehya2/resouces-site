@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-01-03T00:00:00Z",
-  "totalResources": 1,
+  "lastUpdated": "2026-01-25T00:00:00Z",
+  "totalResources": 8,
   "resources": [
     {
       "id": "ublock-origin",
@@ -25,8 +25,19 @@
           "label": "Documentation"
         }
       ],
-      "categories": ["privacy-anonymity", "software", "useful-websites"],
-      "tags": ["adblock", "privacy", "opensource", "free", "browser-extension", "no-signup"],
+      "categories": [
+        "privacy-anonymity",
+        "software",
+        "useful-websites"
+      ],
+      "tags": [
+        "adblock",
+        "privacy",
+        "opensource",
+        "free",
+        "browser-extension",
+        "no-signup"
+      ],
       "verified": true,
       "featured": true,
       "dateAdded": "2026-01-03T00:00:00Z",
@@ -40,10 +51,433 @@
         "scamReports": 0
       },
       "metadata": {
-        "platform": ["web", "browser"],
+        "platform": [
+          "web",
+          "browser"
+        ],
         "license": "GPLv3",
         "pricing": "free",
         "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": false
+      }
+    },
+    {
+      "id": "free-for-dev",
+      "title": "Free for Developers",
+      "shortDescription": "Massive list of free SaaS, PaaS, and IaaS offerings for developers",
+      "longDescription": "A comprehensive, community-driven list of software (SaaS, PaaS, IaaS, etc.) and other offerings that have free tiers for developers. This includes everything from cloud hosting platforms to API services, monitoring tools, database solutions, CI/CD pipelines, and much more. Perfect for bootstrapping projects or learning new technologies without breaking the bank. All entries include details about free tier limitations and feature sets.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://free-for.dev/",
+          "label": "Official Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/ripienaar/free-for-dev",
+          "label": "GitHub Repository"
+        }
+      ],
+      "categories": [
+        "github-repositories",
+        "web-development",
+        "useful-websites"
+      ],
+      "tags": [
+        "free",
+        "opensource",
+        "developer-tools",
+        "api",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "license": "MIT",
+        "pricing": "free",
+        "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": false
+      }
+    },
+    {
+      "id": "open-meteo",
+      "title": "Open-Meteo",
+      "shortDescription": "Free weather API with high-resolution forecasts and no API key required",
+      "longDescription": "Open-Meteo is a free, open-source weather API that provides access to high-resolution weather forecast data. Unlike many other weather APIs, Open-Meteo requires no API key and has no rate limits for non-commercial use. It offers forecasts for temperature, precipitation, wind, and many other variables with global coverage. The API is based on open data from national weather services and uses machine learning models for enhanced accuracy.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://open-meteo.com/",
+          "label": "Official Website"
+        },
+        {
+          "type": "documentation",
+          "url": "https://open-meteo.com/en/docs",
+          "label": "API Documentation"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/open-meteo/open-meteo",
+          "label": "GitHub"
+        }
+      ],
+      "categories": [
+        "apis",
+        "useful-websites",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "api",
+        "no-signup",
+        "opensource"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web",
+          "api"
+        ],
+        "license": "AGPL-3.0",
+        "pricing": "free",
+        "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": true
+      }
+    },
+    {
+      "id": "public-apis",
+      "title": "Public APIs",
+      "shortDescription": "Collective list of free APIs for use in software and web development",
+      "longDescription": "A comprehensive collection of public APIs categorized by topic, including animals, anime, anti-malware, art & design, authentication, blockchain, books, business, calendar, cloud storage, cryptocurrency, currency exchange, data validation, development, dictionaries, documents & productivity, email, entertainment, environment, events, finance, food & drink, games & comics, geocoding, government, health, jobs, machine learning, music, news, open data, open source projects, patent, personality, phone, photography, programming, science & math, security, shopping, social, sports & fitness, test data, text analysis, tracking, transportation, URL shorteners, vehicle, video, and weather. Each API entry includes authentication method, HTTPS support, and CORS information.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://api.publicapis.org/",
+          "label": "API Endpoint"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/public-apis/public-apis",
+          "label": "GitHub Repository"
+        }
+      ],
+      "categories": [
+        "apis",
+        "github-repositories",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "opensource",
+        "api",
+        "developer-tools"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web",
+          "api"
+        ],
+        "license": "MIT",
+        "pricing": "free",
+        "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": false
+      }
+    },
+    {
+      "id": "roadmap-sh",
+      "title": "roadmap.sh",
+      "shortDescription": "Community-driven roadmaps, guides, and learning paths for developers",
+      "longDescription": "roadmap.sh offers interactive and comprehensive roadmaps covering various technology career paths including Frontend, Backend, DevOps, Full Stack, Computer Science, Data Structures & Algorithms, AI and Data Science, Blockchain, QA, Software Architect, Game Developer, and more. Each roadmap provides a visual guide showing the learning path with resources, tutorials, and best practices. The platform also includes skill assessments and project ideas to help developers track their progress.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://roadmap.sh/",
+          "label": "Official Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/kamranahmedse/developer-roadmap",
+          "label": "GitHub Repository"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development",
+        "github-repositories"
+      ],
+      "tags": [
+        "free",
+        "education",
+        "opensource",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": true,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "license": "CC BY-NC-SA 4.0",
+        "pricing": "free",
+        "language": "English",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": false
+      }
+    },
+    {
+      "id": "devdocs",
+      "title": "DevDocs",
+      "shortDescription": "Fast, offline-compatible, all-in-one API documentation browser",
+      "longDescription": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface. It includes documentation for 100+ technologies including JavaScript, Python, Ruby, PHP, C++, Java, TypeScript, React, Node.js, and many more. Features include instant search, keyboard navigation, offline mode (via Service Worker), mobile support, and the ability to enable only the documentation you need. Perfect for developers who want quick access to reference materials without juggling multiple browser tabs.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://devdocs.io/",
+          "label": "Official Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/freeCodeCamp/devdocs",
+          "label": "GitHub Repository"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development",
+        "software"
+      ],
+      "tags": [
+        "free",
+        "opensource",
+        "developer-tools",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "license": "MPL-2.0",
+        "pricing": "free",
+        "language": "English",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": true
+      }
+    },
+    {
+      "id": "owasp-top-10",
+      "title": "OWASP Top 10",
+      "shortDescription": "Standard awareness document for web application security risks",
+      "longDescription": "The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications. The project is regularly updated and includes detailed information about each vulnerability category, examples of attacks, recommendations for prevention, and references to additional resources. Essential reading for anyone involved in web development or application security.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://owasp.org/www-project-top-ten/",
+          "label": "Official Website"
+        },
+        {
+          "type": "documentation",
+          "url": "https://owasp.org/Top10/",
+          "label": "Documentation"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/OWASP/Top10",
+          "label": "GitHub Repository"
+        }
+      ],
+      "categories": [
+        "cybersecurity",
+        "security",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "security",
+        "education",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "license": "CC BY-SA 4.0",
+        "pricing": "free",
+        "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": true,
+        "selfHostable": false
+      }
+    },
+    {
+      "id": "regex101",
+      "title": "Regex101",
+      "shortDescription": "Online regex tester and debugger with real-time explanation",
+      "longDescription": "Regex101 is a powerful online tool for building, testing, and debugging regular expressions. It supports multiple regex flavors including PCRE (PHP), ECMAScript (JavaScript), Python, and Golang. Features include real-time regex explanation, detailed match information, code generator for multiple programming languages, regex library to save and share patterns, quick reference guide, and a community section with thousands of pre-built regex patterns. The syntax highlighting and step-by-step explanation make it perfect for learning regex.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://regex101.com/",
+          "label": "Official Website"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "developer-tools",
+        "no-signup"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "pricing": "freemium",
+        "language": "Multiple",
+        "requiresSignup": false,
+        "openSource": false,
+        "selfHostable": false
+      }
+    },
+    {
+      "id": "can-i-use",
+      "title": "Can I Use",
+      "shortDescription": "Browser compatibility tables for web technologies",
+      "longDescription": "Can I Use provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers. It covers HTML5, CSS3, JavaScript APIs, SVG, and other web platform features. Each feature page includes detailed information about browser version support, known issues, usage statistics globally and by region, and links to related resources. The data is crucial for making informed decisions about which technologies to use in web development projects based on your target audience's browser usage.",
+      "links": [
+        {
+          "type": "website",
+          "url": "https://caniuse.com/",
+          "label": "Official Website"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/Fyrd/caniuse",
+          "label": "GitHub Repository"
+        }
+      ],
+      "categories": [
+        "useful-websites",
+        "web-development"
+      ],
+      "tags": [
+        "free",
+        "developer-tools",
+        "no-signup",
+        "opensource"
+      ],
+      "verified": true,
+      "featured": false,
+      "dateAdded": "2026-01-25T00:00:00Z",
+      "lastChecked": "2026-01-25T00:00:00Z",
+      "status": "active",
+      "community": {
+        "upvotes": 0,
+        "downvotes": 0,
+        "workingCount": 0,
+        "brokenCount": 0,
+        "scamReports": 0
+      },
+      "metadata": {
+        "platform": [
+          "web"
+        ],
+        "license": "CC BY 4.0",
+        "pricing": "free",
+        "language": "English",
         "requiresSignup": false,
         "openSource": true,
         "selfHostable": false

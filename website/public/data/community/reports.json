@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-03T00:00:00Z",
+  "reports": [],
+  "reportTypes": {
+    "broken": "Resource link is broken or inaccessible",
+    "scam": "Resource appears to be malicious or fraudulent",
+    "outdated": "Resource is no longer maintained or updated",
+    "spam": "Resource is spam or low quality",
+    "incorrect": "Information about the resource is incorrect"
+  },
+  "thresholds": {
+    "autoHideScamReports": 5,
+    "autoHideBrokenReports": 10,
+    "reviewRequired": 3
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "name": "resources-wiki-site",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "validate:data": "node scripts/validate-json.js"
+    },
+    "dependencies": {
+        "next": "^14.2.0",
+        "react": "^18.3.0",
+        "react-dom": "^18.3.0",
+        "zustand": "^4.5.0",
+        "fuse.js": "^7.0.0",
+        "lucide-react": "^0.368.0",
+        "framer-motion": "^11.0.0",
+        "@radix-ui/react-dialog": "^1.0.5",
+        "@radix-ui/react-dropdown-menu": "^2.0.6",
+        "@radix-ui/react-select": "^2.0.0",
+        "@radix-ui/react-switch": "^1.0.3",
+        "@radix-ui/react-tooltip": "^1.0.7",
+        "clsx": "^2.1.0",
+        "tailwind-merge": "^2.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.0",
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
+        "typescript": "^5.3.0",
+        "tailwindcss": "^3.4.0",
+        "postcss": "^8.4.0",
+        "autoprefixer": "^10.4.0",
+        "eslint": "^8.56.0",
+        "eslint-config-next": "^14.2.0"
+    }
+}

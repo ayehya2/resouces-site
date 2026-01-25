@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-03T00:00:00Z",
+  "entries": [
+    {
+      "date": "2026-01-03",
+      "type": "added",
+      "resourceId": "ublock-origin",
+      "resourceTitle": "uBlock Origin",
+      "contributor": "system",
+      "note": "Initial project setup example resource"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Category",
+  "description": "Schema for a category definition",
+  "type": "object",
+  "required": ["id", "name", "description"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the category (kebab-case)",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the category",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what the category contains",
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon name/identifier for the category"
+    },
+    "color": {
+      "type": "string",
+      "description": "Hex color code for the category",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "parentCategory": {
+      "type": ["string", "null"],
+      "description": "ID of parent category if this is a subcategory"
+    },
+    "subcategories": {
+      "type": "array",
+      "description": "IDs of child categories",
+      "items": {
+        "type": "string"
+      }
+    },
+    "featured": {
+      "type": "boolean",
+      "description": "Whether to feature this category on the homepage",
+      "default": false
+    },
+    "resourceCount": {
+      "type": "integer",
+      "description": "Number of resources in this category",
+      "minimum": 0,
+      "default": 0
+    }
+  }
+}

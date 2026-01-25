@@ -1,12 +1,19 @@
 import { kv } from '@vercel/kv';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
     try {
         const { resourceId, type } = await req.json();
 
         if (!resourceId || !['up', 'down'].includes(type)) {
             return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
+        }
+
+        // Check if KV is configured
+        if (!process.env.KV_REST_API_URL) {
+            return NextResponse.json({ error: 'Voting system not configured yet' }, { status: 501 });
         }
 
         // Get Client IP for bot/duplicate protection

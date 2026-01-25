@@ -1,8 +1,14 @@
 import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     try {
+        if (!process.env.KV_REST_API_URL) {
+            return NextResponse.json({ votes: {} });
+        }
+
         // This is a simplified fetch of all vote counts. 
         // In a real app, you might want to fetch only for the current resources.
         // For simplicity, we fetch all keys matching votes:*

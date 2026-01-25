@@ -3,6 +3,7 @@
 import { Moon, Sun, Github } from 'lucide-react';
 import { useResourceStore } from '@/lib/store';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export function Header() {
     const { darkMode, toggleDarkMode } = useResourceStore();
@@ -28,22 +29,22 @@ export function Header() {
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
-                        <a href="/" className="text-xl font-bold hover:text-primary transition-colors">
+                        <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
                             Resources Wiki
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Navigation */}
                     <nav className="hidden md:flex items-center gap-6">
-                        <a href="/resources" className="text-sm font-medium hover:text-primary transition-colors">
+                        <Link href="/resources" className="text-sm font-medium hover:text-primary transition-colors">
                             Browse
-                        </a>
-                        <a href="/categories" className="text-sm font-medium hover:text-primary transition-colors">
+                        </Link>
+                        <Link href="/categories" className="text-sm font-medium hover:text-primary transition-colors">
                             Categories
-                        </a>
-                        <a href="/submit" className="text-sm font-medium hover:text-primary transition-colors">
+                        </Link>
+                        <Link href="/submit" className="text-sm font-medium hover:text-primary transition-colors">
                             Submit
-                        </a>
+                        </Link>
                     </nav>
 
                     {/* Actions */}

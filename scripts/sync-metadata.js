@@ -133,18 +133,12 @@ function sync() {
         const brokenResources = allResources.filter(r => r.status === 'broken').length;
 
         // Count categories used by resources
-        const categoriesUsed = new Set();
+        const categoriesWithResources = categoriesData.categories.filter(c => (c.resourceCount || 0) > 0);
+        const categoriesUnused = categoriesData.categories.filter(c => (c.resourceCount || 0) === 0);
         const tagsUsed = new Set();
         allResources.forEach(r => {
-            if (Array.isArray(r.categories)) r.categories.forEach(c => categoriesUsed.add(c));
             if (Array.isArray(r.tags)) r.tags.forEach(t => tagsUsed.add(t));
         });
-
-        // Also include categories that exist in categories.json even if empty
-        const allCategoryIds = new Set([
-            ...categoriesUsed,
-            ...categoriesData.categories.map(c => c.id)
-        ]);
 
         const metadata = {
             version: "1.0.0",
@@ -155,7 +149,9 @@ function sync() {
                 featuredResources,
                 activeResources,
                 brokenResources,
-                categoriesUsed: allCategoryIds.size,
+                totalCategories: categoriesData.categories.length,
+                usedCategories: categoriesWithResources.length,
+                unusedCategories: categoriesUnused.length,
                 tagsUsed: tagsUsed.size,
                 lastScrapingRun: null,
                 nextScrapingScheduled: null

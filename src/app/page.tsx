@@ -32,9 +32,12 @@ export default function HomePage() {
 
     const categoriesWithCounts = categories;
 
-    // Limit featured categories to 9 maximum
+    // Calculate categories that have resources (used categories)
+    const usedCategories = categoriesWithCounts.filter(cat => (cat.resourceCount || 0) > 0);
+
+    // Limit featured categories to 9 maximum, only show those with resources
     const featuredCategories = categoriesWithCounts
-        .filter(cat => cat.featured)
+        .filter(cat => cat.featured && (cat.resourceCount || 0) > 0)
         .slice(0, 9);
     const recentResources = resources
         .filter(r => r.status === 'active')
@@ -58,25 +61,28 @@ export default function HomePage() {
                         </div>
 
                         {/* Stats - Symmetrical & Sleek */}
-                        <div className="grid grid-cols-3 gap-4 pt-12 max-w-lg mx-auto border-t border-border/50">
+                        <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto border-t border-border/50">
                             <div className="text-center group">
                                 <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
                                     {stats?.totalResources || resources.length}
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Resources</div>
+                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1">Total Resources</div>
                             </div>
-                            <div className="text-center group">
+                            <div className="text-center group border-x border-border/30 px-6">
                                 <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
-                                    {stats?.categoriesUsed || new Set(resources.flatMap(r => r.categories)).size}
-                                    <span className="text-muted-foreground text-xl"> / {categories.length}</span>
+                                    {usedCategories.length}
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Categories</div>
+                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1">Used Categories</div>
+                                <div className="flex items-center justify-center gap-2 mt-2 text-[9px] font-mono text-muted-foreground/60">
+                                    <span className="bg-muted px-1.5 py-0.5 rounded">Total: {categories.length}</span>
+                                    <span className="bg-muted px-1.5 py-0.5 rounded">Unused: {categories.length - usedCategories.length}</span>
+                                </div>
                             </div>
                             <div className="text-center group">
                                 <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
                                     {stats?.verifiedResources || resources.filter(r => r.verified).length}
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Verified</div>
+                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1">Verified Entries</div>
                             </div>
                         </div>
                     </div>

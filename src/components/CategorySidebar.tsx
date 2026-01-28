@@ -2,6 +2,7 @@
 
 import type { Category } from '@/types';
 import { FilterPanel } from '@/components/filters/FilterPanel';
+import { Icon } from '@/components/Icon';
 
 interface CategorySidebarProps {
     categories: Category[];
@@ -38,16 +39,18 @@ export function CategorySidebar({ categories, onSelectCategory, selectedCategory
                                     <button
                                         onClick={() => onSelectCategory(category.id)}
                                         className={`w-full text-left px-3 py-2 text-sm transition-colors flex items-center gap-2 ${isActive || hasActiveSubcat
-                                                ? 'bg-muted text-foreground font-medium'
-                                                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                                            ? 'bg-muted text-foreground font-medium'
+                                            : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                                             }`}
                                     >
-                                        <span className={`text-xs ${isActive ? 'opacity-100' : 'opacity-50'}`}>
-                                            {category.icon || '📁'}
-                                        </span>
+                                        <Icon
+                                            name={category.icon || 'folder'}
+                                            className={`h-4 w-4 ${isActive ? 'opacity-100 text-primary' : 'opacity-50'}`}
+                                            useEmoji
+                                        />
                                         <span className="flex-1">{category.name}</span>
                                         {category.resourceCount !== undefined && category.resourceCount > 0 && (
-                                            <span className="text-xs opacity-50">
+                                            <span className="text-xs opacity-50 font-mono">
                                                 {category.resourceCount}
                                             </span>
                                         )}
@@ -60,8 +63,8 @@ export function CategorySidebar({ categories, onSelectCategory, selectedCategory
                                                     key={subcat.id}
                                                     onClick={() => onSelectCategory(subcat.id)}
                                                     className={`w-full text-left px-3 py-1.5 text-sm transition-colors ${selectedCategory === subcat.id
-                                                            ? 'text-primary font-medium'
-                                                            : 'text-muted-foreground hover:text-foreground'
+                                                        ? 'text-primary font-medium'
+                                                        : 'text-muted-foreground hover:text-foreground'
                                                         }`}
                                                 >
                                                     {subcat.name}

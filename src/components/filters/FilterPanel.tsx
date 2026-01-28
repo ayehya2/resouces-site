@@ -13,7 +13,7 @@ export function FilterPanel() {
             ...cat,
             resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
         }))
-            .filter(cat => cat.resourceCount > 0) // Only show categories with resources
+            .filter(cat => cat.resourceCount > 0)
             .sort((a, b) => a.name.localeCompare(b.name));
     }, [categories, resources]);
 
@@ -46,90 +46,77 @@ export function FilterPanel() {
         filters.noSignup ||
         filters.openSource;
 
+    const Checkbox = ({ checked, onChange, label, count }: { checked: boolean; onChange: (v: boolean) => void; label: string; count?: number }) => (
+        <label className="flex items-center gap-2 text-[11px] font-medium cursor-pointer group py-1 px-2 -mx-2 hover:bg-muted/50 transition-all rounded-none border-l-2 border-transparent hover:border-primary/50">
+            <div className="relative flex items-center justify-center">
+                <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={(e) => onChange(e.target.checked)}
+                    className="appearance-none w-3.5 h-3.5 border border-border bg-background checked:bg-primary checked:border-primary transition-all rounded-none cursor-pointer"
+                />
+                {checked && (
+                    <svg
+                        className="absolute w-2 h-2 text-primary-foreground pointer-events-none"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                    >
+                        <path d="M5 13l4 4L19 7" />
+                    </svg>
+                )}
+            </div>
+            <span className={cn("transition-colors", checked ? "text-foreground" : "text-muted-foreground group-hover:text-foreground")}>
+                {label}
+            </span>
+            {count !== undefined && (
+                <span className="text-[10px] font-mono text-muted-foreground opacity-20 ml-1.5 pt-0.5">
+                    ({count})
+                </span>
+            )}
+        </label>
+    );
+
     return (
-        <div className="space-y-6 border border-border bg-card p-4">
+        <div className="space-y-6 border border-border bg-card p-5 shadow-sm">
             {/* Header */}
-            <div className="flex items-center justify-between">
-                <h2 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">Filters</h2>
+            <div className="flex items-center justify-between pb-1.5 border-b border-border/50">
+                <h2 className="font-bold text-[10px] uppercase tracking-[0.2em] text-muted-foreground/80">Filters</h2>
                 {hasActiveFilters && (
                     <button
                         onClick={clearFilters}
-                        className="text-xs text-primary hover:underline font-medium"
+                        className="text-[10px] uppercase tracking-wider text-primary hover:text-primary/80 transition-colors font-bold"
                     >
-                        Clear all
+                        Reset
                     </button>
                 )}
             </div>
 
             {/* Quick Filters */}
-            <div className="space-y-2.5">
-                <h3 className="text-[11px] font-bold uppercase text-muted-foreground/60 tracking-tight">Status</h3>
-
-                <label className="flex items-center gap-2.5 text-xs cursor-pointer group">
-                    <input
-                        type="checkbox"
-                        checked={filters.verified}
-                        onChange={(e) => setFilters({ verified: e.target.checked })}
-                        className="w-3.5 h-3.5 rounded-none border-border"
-                    />
-                    <span className="group-hover:text-primary transition-colors">Verified Only</span>
-                </label>
-
-                <label className="flex items-center gap-2.5 text-xs cursor-pointer group">
-                    <input
-                        type="checkbox"
-                        checked={filters.featured}
-                        onChange={(e) => setFilters({ featured: e.target.checked })}
-                        className="w-3.5 h-3.5 rounded-none border-border"
-                    />
-                    <span className="group-hover:text-primary transition-colors">Featured</span>
-                </label>
-
-                <label className="flex items-center gap-2.5 text-xs cursor-pointer group">
-                    <input
-                        type="checkbox"
-                        checked={filters.openSource}
-                        onChange={(e) => setFilters({ openSource: e.target.checked })}
-                        className="w-3.5 h-3.5 rounded-none border-border"
-                    />
-                    <span className="group-hover:text-primary transition-colors">Open Source</span>
-                </label>
-
-                <label className="flex items-center gap-2.5 text-xs cursor-pointer group">
-                    <input
-                        type="checkbox"
-                        checked={filters.noSignup}
-                        onChange={(e) => setFilters({ noSignup: e.target.checked })}
-                        className="w-3.5 h-3.5 rounded-none border-border"
-                    />
-                    <span className="group-hover:text-primary transition-colors">No Signup</span>
-                </label>
+            <div className="space-y-3">
+                <h3 className="text-[10px] font-black uppercase text-muted-foreground/40 tracking-widest">Metadata</h3>
+                <div className="space-y-0">
+                    <Checkbox label="Verified Only" checked={filters.verified} onChange={(v) => setFilters({ verified: v })} />
+                    <Checkbox label="Featured" checked={filters.featured} onChange={(v) => setFilters({ featured: v })} />
+                    <Checkbox label="Open Source" checked={filters.openSource} onChange={(v) => setFilters({ openSource: v })} />
+                    <Checkbox label="No Signup" checked={filters.noSignup} onChange={(v) => setFilters({ noSignup: v })} />
+                </div>
             </div>
 
             {/* Categories */}
             {categoriesWithCounts.length > 0 && (
                 <div className="space-y-3">
-                    <h3 className="text-[11px] font-bold uppercase text-muted-foreground/60 tracking-tight">Categories</h3>
-                    <div className="space-y-1 max-h-80 overflow-y-auto pr-2 custom-scrollbar">
+                    <h3 className="text-[10px] font-black uppercase text-muted-foreground/40 tracking-widest">Domains</h3>
+                    <div className="space-y-0 max-h-[250px] overflow-y-auto pr-2 custom-scrollbar">
                         {categoriesWithCounts.map((category) => (
-                            <label
+                            <Checkbox
                                 key={category.id}
-                                className={cn(
-                                    "flex items-center gap-2.5 text-xs cursor-pointer py-1 px-1.5 transition-colors -mx-1.5",
-                                    filters.categories.includes(category.id) ? "bg-primary/10 text-primary font-medium" : "hover:bg-muted"
-                                )}
-                            >
-                                <input
-                                    type="checkbox"
-                                    checked={filters.categories.includes(category.id)}
-                                    onChange={() => toggleCategory(category.id)}
-                                    className="w-3.5 h-3.5 rounded-none border-border"
-                                />
-                                <span className="flex-1 truncate">{category.name}</span>
-                                <span className="text-[10px] text-muted-foreground/60 font-mono">
-                                    {category.resourceCount}
-                                </span>
-                            </label>
+                                label={category.name}
+                                count={category.resourceCount}
+                                checked={filters.categories.includes(category.id)}
+                                onChange={() => toggleCategory(category.id)}
+                            />
                         ))}
                     </div>
                 </div>
@@ -138,22 +125,22 @@ export function FilterPanel() {
             {/* Tags */}
             {tagsWithCounts.length > 0 && (
                 <div className="space-y-3">
-                    <h3 className="text-[11px] font-bold uppercase text-muted-foreground/60 tracking-tight">Top Tags</h3>
-                    <div className="flex flex-wrap gap-1.5">
+                    <h3 className="text-[10px] font-black uppercase text-muted-foreground/40 tracking-widest">Popular Tags</h3>
+                    <div className="flex flex-wrap gap-1">
                         {tagsWithCounts
-                            .slice(0, 15)
+                            .slice(0, 12)
                             .map((tag) => (
                                 <button
                                     key={tag.id}
                                     onClick={() => toggleTag(tag.id)}
                                     className={cn(
-                                        "px-2 py-1 text-[10px] border transition-colors font-medium",
+                                        "px-2 py-0.5 text-[9px] border transition-all font-bold uppercase tracking-tight",
                                         filters.tags.includes(tag.id)
                                             ? "bg-primary text-primary-foreground border-primary"
-                                            : "bg-background text-muted-foreground border-border hover:border-primary hover:text-primary"
+                                            : "bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-primary"
                                     )}
                                 >
-                                    #{tag.id}
+                                    {tag.id}
                                 </button>
                             ))}
                     </div>

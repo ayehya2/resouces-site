@@ -42,9 +42,6 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             setResources(resourcesData);
             setCategories(categoriesData);
             setTags(tagsData);
-
-            // Sync global votes
-            useResourceStore.getState().syncVotes();
         };
 
         loadData();

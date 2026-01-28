@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0",
   "lastUpdated": "2026-01-03T00:00:00Z",
   "categories": [
@@ -20,7 +20,11 @@
       "icon": "shield",
       "color": "#DC2626",
       "parentCategory": null,
-      "subcategories": ["ethical-hacking", "digital-forensics", "hacking-tools"],
+      "subcategories": [
+        "ethical-hacking",
+        "digital-forensics",
+        "hacking-tools"
+      ],
       "featured": true,
       "resourceCount": 0
     },
@@ -97,7 +101,9 @@
       "icon": "monitor",
       "color": "#4338CA",
       "parentCategory": null,
-      "subcategories": ["linux"],
+      "subcategories": [
+        "linux"
+      ],
       "featured": false,
       "resourceCount": 0
     },
@@ -287,7 +293,17 @@
       "subcategories": [],
       "featured": false,
       "resourceCount": 0
+    },
+    {
+      "id": "cloud-computing",
+      "name": "Cloud Computing",
+      "description": "Cloud infrastructure, platforms, and serverless computing.",
+      "icon": "cloud",
+      "color": "#0EA5E9",
+      "parentCategory": null,
+      "subcategories": [],
+      "featured": true,
+      "resourceCount": 0
     }
   ]
 }
-

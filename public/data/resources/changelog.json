@@ -1,7 +1,855 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-01-03T00:00:00Z",
+  "lastUpdated": "2026-01-28T08:02:45.527Z",
   "entries": [
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "isc2-cissp",
+      "resourceTitle": "ISC2 CISSP",
+      "contributor": "system",
+      "note": "Automatically detected new resource: ISC2 CISSP"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "aws-certified-solutions-architect",
+      "resourceTitle": "AWS Certified Solutions Architect",
+      "contributor": "system",
+      "note": "Automatically detected new resource: AWS Certified Solutions Architect"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "offsec-oscp",
+      "resourceTitle": "OffSec OSCP",
+      "contributor": "system",
+      "note": "Automatically detected new resource: OffSec OSCP"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "cisco-ccna",
+      "resourceTitle": "Cisco CCNA",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Cisco CCNA"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "comptia-security-plus",
+      "resourceTitle": "CompTIA Security+",
+      "contributor": "system",
+      "note": "Automatically detected new resource: CompTIA Security+"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "geeksforgeeks-portal",
+      "resourceTitle": "GeeksforGeeks",
+      "contributor": "system",
+      "note": "Automatically detected new resource: GeeksforGeeks"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "ddoslayer-l7",
+      "resourceTitle": "DDoSlayer",
+      "contributor": "system",
+      "note": "Automatically detected new resource: DDoSlayer"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "malstatware-static",
+      "resourceTitle": "MalStatWare",
+      "contributor": "system",
+      "note": "Automatically detected new resource: MalStatWare"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "horus-recon",
+      "resourceTitle": "Horus",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Horus"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "nessus",
+      "resourceTitle": "Nessus",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Nessus"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "ghidra",
+      "resourceTitle": "Ghidra",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Ghidra"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "codecrafters",
+      "resourceTitle": "CodeCrafters",
+      "contributor": "system",
+      "note": "Automatically detected new resource: CodeCrafters"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "coding-interview-university",
+      "resourceTitle": "Coding Interview University",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Coding Interview University"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "linkedin-skill-assessments",
+      "resourceTitle": "LinkedIn Skill Assessments Quizzes",
+      "contributor": "system",
+      "note": "Automatically detected new resource: LinkedIn Skill Assessments Quizzes"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "codewars",
+      "resourceTitle": "Codewars",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Codewars"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "edx",
+      "resourceTitle": "edX",
+      "contributor": "system",
+      "note": "Automatically detected new resource: edX"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "udacity",
+      "resourceTitle": "Udacity",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Udacity"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pluralsight",
+      "resourceTitle": "Pluralsight",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Pluralsight"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "treehouse",
+      "resourceTitle": "Treehouse",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Treehouse"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "hackerrank",
+      "resourceTitle": "HackerRank",
+      "contributor": "system",
+      "note": "Automatically detected new resource: HackerRank"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "john-smilga",
+      "resourceTitle": "John Smilga (Coding Addict)",
+      "contributor": "system",
+      "note": "Automatically detected new resource: John Smilga (Coding Addict)"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "codecademy",
+      "resourceTitle": "Codecademy",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Codecademy"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "hackrf-one",
+      "resourceTitle": "HackRF One",
+      "contributor": "system",
+      "note": "Automatically detected new resource: HackRF One"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "hashcat",
+      "resourceTitle": "Hashcat",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Hashcat"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "aircrack-ng",
+      "resourceTitle": "Aircrack-ng",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Aircrack-ng"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "sitedorks",
+      "resourceTitle": "SiteDorks",
+      "contributor": "system",
+      "note": "Automatically detected new resource: SiteDorks"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "genzai-iot",
+      "resourceTitle": "Genzai",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Genzai"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pingrat",
+      "resourceTitle": "PingRAT",
+      "contributor": "system",
+      "note": "Automatically detected new resource: PingRAT"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "freeway-wifi",
+      "resourceTitle": "Freeway",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Freeway"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "certina",
+      "resourceTitle": "Certina",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Certina"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "project-euler",
+      "resourceTitle": "Project Euler",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Project Euler"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "leetcode",
+      "resourceTitle": "LeetCode",
+      "contributor": "system",
+      "note": "Automatically detected new resource: LeetCode"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "mdn-web-docs",
+      "resourceTitle": "MDN Web Docs",
+      "contributor": "system",
+      "note": "Automatically detected new resource: MDN Web Docs"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "the-odin-project",
+      "resourceTitle": "The Odin Project",
+      "contributor": "system",
+      "note": "Automatically detected new resource: The Odin Project"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "freecodecamp",
+      "resourceTitle": "freeCodeCamp",
+      "contributor": "system",
+      "note": "Automatically detected new resource: freeCodeCamp"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "metasploit",
+      "resourceTitle": "Metasploit",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Metasploit"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "burpsuite",
+      "resourceTitle": "Burp Suite",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Burp Suite"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "shodan",
+      "resourceTitle": "Shodan",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Shodan"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "nmap",
+      "resourceTitle": "Nmap",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Nmap"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "wireshark",
+      "resourceTitle": "Wireshark",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Wireshark"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "finalrecon",
+      "resourceTitle": "FinalRecon",
+      "contributor": "system",
+      "note": "Automatically detected new resource: FinalRecon"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "dnstwist",
+      "resourceTitle": "dnstwist",
+      "contributor": "system",
+      "note": "Automatically detected new resource: dnstwist"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "rust-red-ops",
+      "resourceTitle": "RustRedOps",
+      "contributor": "system",
+      "note": "Automatically detected new resource: RustRedOps"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "mailmeta",
+      "resourceTitle": "mailMeta",
+      "contributor": "system",
+      "note": "Automatically detected new resource: mailMeta"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "403jump",
+      "resourceTitle": "403jump",
+      "contributor": "system",
+      "note": "Automatically detected new resource: 403jump"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "upload-bypass",
+      "resourceTitle": "Upload Bypass",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Upload Bypass"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "waf-bypass-tool",
+      "resourceTitle": "WAF Bypass",
+      "contributor": "system",
+      "note": "Automatically detected new resource: WAF Bypass"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "netscout-osint",
+      "resourceTitle": "NetScout",
+      "contributor": "system",
+      "note": "Automatically detected new resource: NetScout"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pphack",
+      "resourceTitle": "pphack",
+      "contributor": "system",
+      "note": "Automatically detected new resource: pphack"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "go-dork",
+      "resourceTitle": "go-dork",
+      "contributor": "system",
+      "note": "Automatically detected new resource: go-dork"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "apk2url",
+      "resourceTitle": "apk2url",
+      "contributor": "system",
+      "note": "Automatically detected new resource: apk2url"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "troll-a",
+      "resourceTitle": "Troll-A",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Troll-A"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "smugglefuzz",
+      "resourceTitle": "SmuggleFuzz",
+      "contributor": "system",
+      "note": "Automatically detected new resource: SmuggleFuzz"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pentesterlab",
+      "resourceTitle": "PentesterLab",
+      "contributor": "system",
+      "note": "Automatically detected new resource: PentesterLab"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "vulnhub",
+      "resourceTitle": "VulnHub",
+      "contributor": "system",
+      "note": "Automatically detected new resource: VulnHub"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "overthewire",
+      "resourceTitle": "OverTheWire",
+      "contributor": "system",
+      "note": "Automatically detected new resource: OverTheWire"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "portswigger-academy",
+      "resourceTitle": "PortSwigger Academy",
+      "contributor": "system",
+      "note": "Automatically detected new resource: PortSwigger Academy"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "hackthebox",
+      "resourceTitle": "Hack The Box",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Hack The Box"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "tryhackme",
+      "resourceTitle": "TryHackMe",
+      "contributor": "system",
+      "note": "Automatically detected new resource: TryHackMe"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "microsoft-defender-endpoint",
+      "resourceTitle": "Defender for Endpoint",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Defender for Endpoint"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "sentinel-one",
+      "resourceTitle": "SentinelOne",
+      "contributor": "system",
+      "note": "Automatically detected new resource: SentinelOne"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "carbon-black",
+      "resourceTitle": "Carbon Black",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Carbon Black"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "crowdstrike-falcon",
+      "resourceTitle": "CrowdStrike Falcon",
+      "contributor": "system",
+      "note": "Automatically detected new resource: CrowdStrike Falcon"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "ossec",
+      "resourceTitle": "OSSEC",
+      "contributor": "system",
+      "note": "Automatically detected new resource: OSSEC"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "snort",
+      "resourceTitle": "Snort",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Snort"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "alienvault-ossim",
+      "resourceTitle": "AlienVault OSSIM",
+      "contributor": "system",
+      "note": "Automatically detected new resource: AlienVault OSSIM"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "logrhythm",
+      "resourceTitle": "LogRhythm",
+      "contributor": "system",
+      "note": "Automatically detected new resource: LogRhythm"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "ibm-qradar",
+      "resourceTitle": "IBM QRadar",
+      "contributor": "system",
+      "note": "Automatically detected new resource: IBM QRadar"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "splunk",
+      "resourceTitle": "Splunk",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Splunk"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "cloudflare-registrar",
+      "resourceTitle": "Cloudflare Registrar",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Cloudflare Registrar"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "dmca-protection",
+      "resourceTitle": "DMCA.com",
+      "contributor": "system",
+      "note": "Automatically detected new resource: DMCA.com"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pihole-on-ubuntu-guide",
+      "resourceTitle": "Pi-hole on Ubuntu Guide",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Pi-hole on Ubuntu Guide"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "voicemeeter-banana",
+      "resourceTitle": "Voicemeeter Banana",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Voicemeeter Banana"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "bentopdf",
+      "resourceTitle": "BentoPDF",
+      "contributor": "system",
+      "note": "Automatically detected new resource: BentoPDF"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "shadcn-ui",
+      "resourceTitle": "shadcn/ui",
+      "contributor": "system",
+      "note": "Automatically detected new resource: shadcn/ui"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pdf24-tools",
+      "resourceTitle": "PDF24 Tools",
+      "contributor": "system",
+      "note": "Automatically detected new resource: PDF24 Tools"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "is-a-dev-docs",
+      "resourceTitle": "is-a.dev Docs",
+      "contributor": "system",
+      "note": "Automatically detected new resource: is-a.dev Docs"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "free-for-dev-hub",
+      "resourceTitle": "Free for Dev Hub",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Free for Dev Hub"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "computer-science-ossu",
+      "resourceTitle": "OSSU Computer Science",
+      "contributor": "system",
+      "note": "Automatically detected new resource: OSSU Computer Science"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "project-based-learning",
+      "resourceTitle": "Project Based Learning",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Project Based Learning"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "leetcode-company-wise",
+      "resourceTitle": "LeetCode Company Wise Problems",
+      "contributor": "system",
+      "note": "Automatically detected new resource: LeetCode Company Wise Problems"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "back-end-interview",
+      "resourceTitle": "Back-End Developer Interview Questions",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Back-End Developer Interview Questions"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "tech-interview-handbook",
+      "resourceTitle": "Tech Interview Handbook",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Tech Interview Handbook"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "build-your-own-x",
+      "resourceTitle": "Build Your Own X",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Build Your Own X"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "awesome",
+      "resourceTitle": "Awesome Lists",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Awesome Lists"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "pwnstick-lua",
+      "resourceTitle": "Pwnstick Lua",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Pwnstick Lua"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "wifi-duck",
+      "resourceTitle": "WiFi Duck",
+      "contributor": "system",
+      "note": "Automatically detected new resource: WiFi Duck"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "nanochat",
+      "resourceTitle": "Nanochat",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Nanochat"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "scrapling",
+      "resourceTitle": "Scrapling",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Scrapling"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "transformers-js-examples",
+      "resourceTitle": "Transformers.js Examples",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Transformers.js Examples"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "open-lovable",
+      "resourceTitle": "Open Lovable",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Open Lovable"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "usb-army-knife",
+      "resourceTitle": "USB Army Knife",
+      "contributor": "system",
+      "note": "Automatically detected new resource: USB Army Knife"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "stackoverflow",
+      "resourceTitle": "Stack Overflow",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Stack Overflow"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "can-i-use",
+      "resourceTitle": "Can I Use",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Can I Use"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "regex101",
+      "resourceTitle": "Regex101",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Regex101"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "owasp-top-10",
+      "resourceTitle": "OWASP Top 10",
+      "contributor": "system",
+      "note": "Automatically detected new resource: OWASP Top 10"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "devdocs",
+      "resourceTitle": "DevDocs",
+      "contributor": "system",
+      "note": "Automatically detected new resource: DevDocs"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "github",
+      "resourceTitle": "GitHub",
+      "contributor": "system",
+      "note": "Automatically detected new resource: GitHub"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "vscode",
+      "resourceTitle": "VS Code",
+      "contributor": "system",
+      "note": "Automatically detected new resource: VS Code"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "kali-linux",
+      "resourceTitle": "Kali Linux",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Kali Linux"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "roadmap-sh",
+      "resourceTitle": "roadmap.sh",
+      "contributor": "system",
+      "note": "Automatically detected new resource: roadmap.sh"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "public-apis",
+      "resourceTitle": "Public APIs",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Public APIs"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "open-meteo",
+      "resourceTitle": "Open-Meteo",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Open-Meteo"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "free-for-dev",
+      "resourceTitle": "Free for Developers",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Free for Developers"
+    },
+    {
+      "date": "2026-01-25",
+      "type": "added",
+      "resourceId": "chatgpt",
+      "resourceTitle": "ChatGPT",
+      "contributor": "system",
+      "note": "Automatically detected new resource: ChatGPT"
+    },
+    {
+      "date": "2026-01-28",
+      "type": "added",
+      "resourceId": "antigravity",
+      "resourceTitle": "Antigravity",
+      "contributor": "system",
+      "note": "Automatically detected new resource: Antigravity"
+    },
     {
       "date": "2026-01-03",
       "type": "added",

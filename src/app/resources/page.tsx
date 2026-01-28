@@ -40,9 +40,6 @@ export default function ResourcesPage() {
             setResources(resourcesData);
             setCategories(categoriesData);
             setTags(tagsData);
-
-            // Sync global votes
-            useResourceStore.getState().syncVotes();
         };
 
         loadData();
@@ -139,7 +136,7 @@ export default function ResourcesPage() {
                         </div>
 
                         {/* Resource List */}
-                        <ResourceList resources={displayedResources} />
+                        <ResourceList resources={displayedResources} groupByCategory={true} />
                     </main>
 
                     {/* Right Sidebar - "On this page" */}

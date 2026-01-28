@@ -46,7 +46,7 @@ export function Header() {
 
         const query = searchValue.toLowerCase();
 
-        // Search categories
+        // Search categories - Simple containment is usually fine for few categories
         const matchedCategories = categories
             .filter(cat =>
                 cat.name.toLowerCase().includes(query) ||
@@ -54,7 +54,7 @@ export function Header() {
             )
             .slice(0, 5);
 
-        // Search resources
+        // Search resources - Using Fuse.js for typo tolerance
         const searchIndex = createSearchIndex(resources);
         const matchedResources = searchResources(searchIndex, searchValue).slice(0, 10);
 
@@ -66,7 +66,7 @@ export function Header() {
 
     const handleResourceClick = (resourceId: string) => {
         useResourceStore.getState().setSearchQuery(searchValue);
-        router.push(`/resources`);
+        router.push(`/resources?q=${encodeURIComponent(searchValue)}`);
         setShowSearch(false);
         setSearchValue('');
     };
@@ -89,21 +89,23 @@ export function Header() {
                 <div className="container mx-auto px-4">
                     <div className="flex h-14 items-center justify-between">
                         {/* Logo */}
-                        <Link href="/" className="text-lg font-bold hover:text-primary transition-colors">
-                            Resources Wiki
+                        <Link href="/" className="text-xl font-black tracking-tight hover:text-primary transition-colors flex items-center gap-1">
+                            Resources <span className="text-primary italic font-serif font-black">Wiki</span>
                         </Link>
 
                         <div className="flex items-center gap-6">
                             {/* Search Button */}
                             <button
                                 onClick={() => setShowSearch(true)}
-                                className="flex items-center gap-2 px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                className="flex items-center gap-4 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground transition-all border border-transparent hover:border-border"
                             >
-                                <Search className="h-4 w-4" />
-                                <span className="hidden sm:inline">Search</span>
-                                <kbd className="hidden sm:inline-flex h-5 select-none items-center gap-1 border border-border bg-muted px-1.5 font-mono text-[10px] font-medium">
-                                    <span className="text-xs">Ctrl</span>K
-                                </kbd>
+                                <span className="flex items-center gap-2">
+                                    <Search className="h-3.5 w-3.5" />
+                                    Search
+                                </span>
+                                <span className="hidden md:inline-block font-mono text-[10px] bg-muted px-1.5 py-0.5 border border-border">
+                                    ⌘K
+                                </span>
                             </button>
 
                             {/* Navigation */}
@@ -116,6 +118,12 @@ export function Header() {
                                 </Link>
                                 <Link href="/glossary" className="text-sm hover:text-primary transition-colors">
                                     Glossary
+                                </Link>
+                                <Link href="/submit" className="text-sm hover:text-primary transition-colors">
+                                    Submit
+                                </Link>
+                                <Link href="/changelog" className="text-sm hover:text-primary transition-colors">
+                                    Updates
                                 </Link>
                             </nav>
 
@@ -234,7 +242,8 @@ export function Header() {
                         </div>
                     </div>
                 </div>
-            )}
+            )
+            }
         </>
     );
 }

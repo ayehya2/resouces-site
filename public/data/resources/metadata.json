@@ -1,19 +1,19 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-01-03T00:00:00Z",
+  "lastUpdated": "2026-01-28T08:04:26.865Z",
   "statistics": {
-    "totalResources": 1,
-    "verifiedResources": 1,
-    "featuredResources": 1,
-    "activeResources": 1,
+    "totalResources": 107,
+    "verifiedResources": 107,
+    "featuredResources": 35,
+    "activeResources": 107,
     "brokenResources": 0,
-    "categoriesUsed": 26,
-    "tagsUsed": 15,
+    "categoriesUsed": 27,
+    "tagsUsed": 192,
     "lastScrapingRun": null,
     "nextScrapingScheduled": null
   },
   "dataIntegrity": {
-    "lastValidation": "2026-01-03T00:00:00Z",
+    "lastValidation": "2026-01-28T08:04:26.865Z",
     "validationStatus": "passed",
     "issues": []
   }

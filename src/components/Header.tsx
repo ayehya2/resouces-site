@@ -220,7 +220,7 @@ export function Header() {
                                         </>
                                     ) : (
                                         <div className="p-8 text-center text-sm text-muted-foreground">
-                                            No results found for "{searchValue}"
+                                            No results found for &ldquo;{searchValue}&rdquo;
                                         </div>
                                     )}
                                 </div>

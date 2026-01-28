@@ -79,10 +79,11 @@ We value quality over quantity. To contribute a resource:
 ## 📈 Evolution Roadmap
 
 - [x] **Phase 1**: Premium Dark Theme & High-Density UI
-- [x] **Phase 2**: Automated Metadata Orchestration
+- [x] **Phase 2**: Automated Metadata Orchestration (Hierarchical Sync)
 - [x] **Phase 3**: Typotolerant Fuzzy Search (Fuse.js)
-- [ ] **Phase 4**: Incremental Static Regeneration (ISR) for data loading
-- [ ] **Phase 5**: Community voting & trust score implementation (API Integration)
+- [x] **Phase 4**: Advanced 'On This Page' Dynamic Navigation
+- [x] **Phase 5**: Local State Voting & Engagement Metrics
+- [ ] **Phase 6**: Incremental Static Regeneration (ISR) for data loading
 
 ---
 
@@ -209,7 +210,7 @@ GET /api/resources?category=cybersecurity&tags=opensource&verified=true
 ```
 
 ### POST /api/vote
-Submit a vote for a resource
+Submit a vote for a resource (Client-side localized persistence)
 
 **Body:**
 ```json
@@ -237,13 +238,11 @@ For developers contributing to this project:
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [Fuse.js](https://fusejs.io/)
-- [OpenAI API](https://platform.openai.com/docs)
 
 ## 📞 Support
 
-- **Issues:** [GitHub Issues](https://github.com/yourusername/resources-site/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/resources-site/discussions)
-- **Email:** resources@example.com
+- **Issues:** [GitHub Issues](https://github.com/ayehya2/resouces-site/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/ayehya2/resouces-site/discussions)
 
 ## 📄 License
 
@@ -253,11 +252,10 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 - Community contributors
 - Open-source tool maintainers
-- AI providers (OpenAI, Anthropic)
-- Hosting platforms (Vercel, GitHub)
+- Vercel & GitHub for infrastructure
 
 ---
 
-**Last Updated:** January 3, 2026  
-**Version:** 1.0.0  
-**Status:** In Development
+**Last Updated:** January 28, 2026  
+**Version:** 1.1.0  
+**Status:** Feature Complete (Automation Driven)

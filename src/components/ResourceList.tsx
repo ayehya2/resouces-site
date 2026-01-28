@@ -95,7 +95,7 @@ export function ResourceList({
                         {/* Parent Category Header */}
                         <div className="pb-2 border-b-2 border-primary/20">
                             <h2 className="text-lg font-black uppercase tracking-widest flex items-center">
-                                <Icon name={category.icon || 'folder'} className="h-5 w-5 text-primary mr-3" useEmoji />
+                                <Icon name={category.icon || 'folder'} className="h-5 w-5 text-primary mr-3" />
                                 {category.name}
                                 <span className="text-xs font-mono font-normal text-muted-foreground/30 ml-4 pt-1">
                                     / {parentResources.length + Object.values(subGroups).reduce((acc, g) => acc + g.resources.length, 0)} TOTAL

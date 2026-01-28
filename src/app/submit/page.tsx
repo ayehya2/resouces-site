@@ -63,18 +63,18 @@ export default function SubmitPage() {
                                 <span className="text-primary">1.</span> Via GitHub Issue (Recommended for Beginners)
                             </h3>
                             <ol className="space-y-2 text-sm text-muted-foreground list-decimal pl-6">
-                                <li>Click the "Suggest via Issue" button above</li>
+                                <li>Click the &quot;Suggest via Issue&quot; button above</li>
                                 <li>Fill in the template fields:
                                     <ul className="list-disc pl-6 mt-2 space-y-1">
-                                        <li><strong className="text-foreground">Title:</strong> Full name of the resource (e.g., "Metasploit Framework")</li>
-                                        <li><strong className="text-foreground">Short Description:</strong> One sentence summary (e.g., "Network traffic visibility for OSINT")</li>
+                                        <li><strong className="text-foreground">Title:</strong> Full name of the resource (e.g., &quot;Metasploit Framework&quot;)</li>
+                                        <li><strong className="text-foreground">Short Description:</strong> One sentence summary (e.g., &quot;Network traffic visibility for OSINT&quot;)</li>
                                         <li><strong className="text-foreground">Long Description:</strong> 2-3 sentences with key features and use cases</li>
                                         <li><strong className="text-foreground">URL:</strong> Main website or GitHub repository</li>
                                         <li><strong className="text-foreground">Categories:</strong> Choose from: AI, Cybersecurity, Web Dev, etc.</li>
-                                        <li><strong className="text-foreground">Tags:</strong> Comma-separated keywords (e.g., "opensource, security, free")</li>
+                                        <li><strong className="text-foreground">Tags:</strong> Comma-separated keywords (e.g., &quot;opensource, security, free&quot;)</li>
                                     </ul>
                                 </li>
-                                <li>Submit the issue and we'll review it within 48 hours</li>
+                                <li>Submit the issue and we&apos;ll review it within 48 hours</li>
                             </ol>
                         </div>
 
@@ -170,6 +170,7 @@ export default function SubmitPage() {
                                 <li>❌ Invalid category IDs (check categories.json)</li>
                                 <li>❌ Not running sync script before PR</li>
                                 <li>❌ Duplicate resource entries</li>
+                                <li>❌ Cool finds that don&apos;t fit into other categories</li>
                             </ul>
                         </div>
                     </div>

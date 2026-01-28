@@ -41,7 +41,7 @@ export function MinimalResourceList({ resources }: MinimalResourceListProps) {
                                 <span className="text-muted-foreground opacity-50 px-1">/</span>
                                 {resource.links.slice(1).map((link, idx) => (
                                     <span key={idx} className="flex items-center gap-1">
-                                        <Icon name={link.type} className="h-3 w-3" useEmoji />
+                                        <Icon name={link.type} className="h-3 w-3" />
                                         <a
                                             href={link.url}
                                             target="_blank"

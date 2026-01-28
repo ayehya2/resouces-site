@@ -124,7 +124,7 @@ export function ResourceCard({ resource }: ResourceCardProps) {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-3 py-1.5 text-xs border border-border bg-background hover:bg-muted hover:border-primary transition-colors font-medium"
                     >
-                        <Icon name={link.type || 'website'} className="h-3.5 w-3.5" useEmoji />
+                        <Icon name={link.type || 'website'} className="h-3.5 w-3.5" />
                         <span>{link.label}</span>
                     </a>
                 ))}

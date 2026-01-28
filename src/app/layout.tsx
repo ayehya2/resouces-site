@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-    title: 'Resources Wiki - Curated Technical Resources Directory',
+    title: 'Resources Hub - Curated Technical Resources Directory',
     description: 'A minimalist, community-driven directory of high-quality technical resources, tools, and learning materials.',
     keywords: ['resources', 'tools', 'software', 'development', 'cybersecurity', 'AI', 'learning'],
 };

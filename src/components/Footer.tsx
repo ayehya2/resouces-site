@@ -5,7 +5,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* About */}
                     <div>
-                        <h3 className="font-bold mb-3">Resources Wiki</h3>
+                        <h3 className="font-bold mb-3">Resources Hub</h3>
                         <p className="text-sm text-muted-foreground">
                             A community-driven directory of curated technical resources.
                         </p>
@@ -74,7 +74,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-                    <p>© {new Date().getFullYear()} Resources Wiki. Open source and community-driven.</p>
+                    <p>© {new Date().getFullYear()} Resources Hub. Open source and community-driven.</p>
                 </div>
             </div>
         </footer>

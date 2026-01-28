@@ -90,7 +90,7 @@ export function Header() {
                     <div className="flex h-14 items-center justify-between">
                         {/* Logo */}
                         <Link href="/" className="text-xl font-black tracking-tight hover:text-primary transition-colors flex items-center gap-1">
-                            Resources <span className="text-primary italic font-serif font-black">Wiki</span>
+                            Resources <span className="text-primary italic font-serif font-black">Hub</span>
                         </Link>
 
                         <div className="flex items-center gap-6">

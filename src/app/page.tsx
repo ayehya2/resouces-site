@@ -32,7 +32,10 @@ export default function HomePage() {
 
     const categoriesWithCounts = categories;
 
-    const featuredCategories = categoriesWithCounts.filter(cat => cat.featured);
+    // Limit featured categories to 9 maximum
+    const featuredCategories = categoriesWithCounts
+        .filter(cat => cat.featured)
+        .slice(0, 9);
     const recentResources = resources
         .filter(r => r.status === 'active')
         .sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime())
@@ -46,7 +49,7 @@ export default function HomePage() {
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         <div className="space-y-4">
                             <h1 className="text-5xl md:text-7xl font-black tracking-tight text-foreground">
-                                Resources <span className="text-primary italic">Wiki</span>
+                                Resources <span className="text-primary italic">Hub</span>
                             </h1>
                             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                                 A premium, community-driven directory of high-quality technical resources, tools, and learning materials.
@@ -65,6 +68,7 @@ export default function HomePage() {
                             <div className="text-center group">
                                 <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
                                     {stats?.categoriesUsed || new Set(resources.flatMap(r => r.categories)).size}
+                                    <span className="text-muted-foreground text-xl"> / {categories.length}</span>
                                 </div>
                                 <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Categories</div>
                             </div>
@@ -85,7 +89,7 @@ export default function HomePage() {
                     <div className="container mx-auto px-4 py-16">
                         <div className="flex items-center justify-between mb-8">
                             <h2 className="text-xl font-bold tracking-tight uppercase border-l-4 border-primary pl-4">
-                                Featured Domains
+                                Featured Sections
                             </h2>
                             <Link href="/categories" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                                 View Categories →

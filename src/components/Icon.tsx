@@ -23,7 +23,10 @@ import {
     Star,
     FileText,
     Download,
-    ExternalLink
+    ExternalLink,
+    Cloud,
+    Folder,
+    BookOpen
 } from 'lucide-react';
 
 const iconMap: Record<string, any> = {
@@ -51,55 +54,26 @@ const iconMap: Record<string, any> = {
     'star': Star,
     'file-text': FileText,
     'download': Download,
-    'external-link': ExternalLink
-};
-
-const emojiMap: Record<string, string> = {
-    'brain': '🧠',
-    'shield': '🛡️',
-    'terminal': '💻',
-    'search': '🔍',
-    'eye-off': '👁️‍🗨️',
-    'network': '🌐',
-    'code': '👨‍💻',
-    'database': '🗄️',
-    'monitor': '🖥️',
-    'git-branch': '🌿',
-    'link': '🔗',
-    'calculator': '🔢',
-    'award': '🏆',
-    'github': '🐙',
-    'package': '📦',
-    'globe': '🌍',
-    'youtube': '📺',
-    'hard-drive': '💾',
-    'activity': '📈',
-    'lock': '🔒',
-    'shield-check': '✅',
-    'star': '⭐',
-    'website': '🌐',
-    'documentation': '📚',
-    'download': '📥'
+    'external-link': ExternalLink,
+    'cloud': Cloud,
+    'folder': Folder,
+    'website': Globe,
+    'documentation': BookOpen
 };
 
 interface IconProps {
     name: string;
     className?: string;
-    useEmoji?: boolean;
 }
 
-export function Icon({ name, className, useEmoji = false }: IconProps) {
+export function Icon({ name, className }: IconProps) {
     const lowerName = name.toLowerCase();
-
-    if (useEmoji) {
-        return <span className={className}>{emojiMap[lowerName] || '📄'}</span>;
-    }
-
     const LucideIcon = iconMap[lowerName];
+
     if (LucideIcon) {
         return <LucideIcon className={className} />;
     }
 
-    // Fallback to emoji if no lucide icon found
-    return <span className={className}>{emojiMap[lowerName] || '📄'}</span>;
+    // Fallback to FileText icon if no mapping found
+    return <FileText className={className} />;
 }

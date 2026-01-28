@@ -18,11 +18,11 @@ export function CategorySidebar({ categories, onSelectCategory, selectedCategory
     return (
         <aside className="w-64 flex-shrink-0">
             <div className="sticky top-20 space-y-4">
-                {/* Wiki Navigation */}
+                {/* Hub Navigation */}
                 <div className="border border-border bg-card">
                     <div className="p-4 border-b border-border">
                         <h2 className="font-bold text-sm uppercase tracking-wide text-muted-foreground">
-                            Wiki
+                            Hub
                         </h2>
                     </div>
 
@@ -46,7 +46,6 @@ export function CategorySidebar({ categories, onSelectCategory, selectedCategory
                                         <Icon
                                             name={category.icon || 'folder'}
                                             className={`h-4 w-4 ${isActive ? 'opacity-100 text-primary' : 'opacity-50'}`}
-                                            useEmoji
                                         />
                                         <span className="flex-1">{category.name}</span>
                                         {category.resourceCount !== undefined && category.resourceCount > 0 && (

@@ -1,4 +1,4 @@
-# Resources <span style="font-family: serif; font-style: italic; font-weight: 900; color: #10b981;">Wiki</span>
+# Resources <span style="font-family: serif; font-style: italic; font-weight: 900; color: #10b981;">Hub</span>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
@@ -13,7 +13,7 @@ A high-performance, community-curated directory for technical resources, tools, 
 
 ## ✨ Design Philosophy
 
-This project follows a "Technical Wiki" aesthetic, blending the information density of classic documentation with modern, premium dark-theme elements.
+This project follows a "Technical Hub" aesthetic, blending the information density of classic documentation with modern, premium dark-theme elements.
 
 - **High-Density UI**: Every pixel is optimized to display maximum information without clutter.
 - **Micro-Interactions**: Subtle borders, hover transitions, and monospaced typography create a professional-grade feel.
@@ -53,7 +53,7 @@ The site uses a "JSON-as-Database" approach, ensuring the entire directory is ve
 
 ### 1. Installation
 ```bash
-# Clone the wiki
+# Clone the hub
 git clone https://github.com/ayehya2/resouces-site.git
 cd resouces-site
 
@@ -88,7 +88,7 @@ We value quality over quantity. To contribute a resource:
 ---
 
 <p align="center">
-  Built with precision by the <a href="https://github.com/ayehya2/resouces-site">Resources Wiki Community</a>.
+  Built with precision by the <a href="https://github.com/ayehya2/resouces-site">Resources Hub Community</a>.
 </p>
 
 ## 📝 JSON Schema Examples

@@ -9,13 +9,10 @@ export function FilterPanel() {
     const { filters, setFilters, clearFilters, categories, tags, resources } = useResourceStore();
 
     const categoriesWithCounts = useMemo(() => {
-        return categories.map((cat: Category) => ({
-            ...cat,
-            resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
-        }))
-            .filter(cat => cat.resourceCount > 0)
+        return categories
+            .filter(cat => (cat.resourceCount || 0) > 0)
             .sort((a, b) => a.name.localeCompare(b.name));
-    }, [categories, resources]);
+    }, [categories]);
 
     const tagsWithCounts = useMemo(() => {
         return tags.map((tag: Tag) => ({

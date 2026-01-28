@@ -55,6 +55,21 @@ export const useResourceStore = create<ResourceStore>()(
                 }),
 
             clearFilters: () => set({ filters: defaultFilters, searchQuery: '' }),
+            voteResource: (resourceId: string, type: 'up' | 'down') =>
+                set((state) => ({
+                    resources: state.resources.map((r) => {
+                        if (r.id !== resourceId) return r;
+                        const metrics = r.community || { upvotes: 0, downvotes: 0, workingCount: 0, brokenCount: 0, scamReports: 0 };
+                        return {
+                            ...r,
+                            community: {
+                                ...metrics,
+                                upvotes: type === 'up' ? metrics.upvotes + 1 : metrics.upvotes,
+                                downvotes: type === 'down' ? metrics.downvotes + 1 : metrics.downvotes,
+                            },
+                        };
+                    }),
+                })),
         }),
         {
             name: 'resource-store',

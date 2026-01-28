@@ -97,6 +97,60 @@
                     "definition": "Software with restricted licensing where the source code is not publicly available."
                 }
             ]
+        },
+        {
+            "name": "Cybersecurity & Pentesting",
+            "terms": [
+                {
+                    "term": "OSCP (Offensive Security Certified Professional)",
+                    "definition": "An ethical hacking certification offered by OffSec that focuses on hands-on penetration testing skills."
+                },
+                {
+                    "term": "Zero-Day (0-day)",
+                    "definition": "A software vulnerability that is unknown to those who should be interested in its mitigation (including the vendor)."
+                },
+                {
+                    "term": "Pentesting",
+                    "definition": "Short for penetration testing, a simulated cyberattack against your computer system to check for exploitable vulnerabilities."
+                },
+                {
+                    "term": "SQL Injection (SQLi)",
+                    "definition": "A type of vulnerability where an attacker can interfere with the queries that an application makes to its database."
+                },
+                {
+                    "term": "Cross-Site Scripting (XSS)",
+                    "definition": "A security vulnerability typically found in web applications that allows attackers to inject client-side scripts into web pages viewed by other users."
+                },
+                {
+                    "term": "Reverse Shell",
+                    "definition": "A type of shell where the target machine communicates back to the attacking machine, allowing remote command execution."
+                }
+            ]
+        },
+        {
+            "name": "Cloud & Infrastructure",
+            "terms": [
+                {
+                    "term": "IaC (Infrastructure as Code)",
+                    "definition": "The managing and provisioning of infrastructure through code instead of through manual processes."
+                },
+                {
+                    "term": "Serverless",
+                    "definition": "A cloud-computing execution model where the cloud provider runs the server and dynamically manages the allocation of machine resources."
+                },
+                {
+                    "term": "Kubernetes (K8s)",
+                    "definition": "An open-source system for automating deployment, scaling, and management of containerized applications."
+                },
+                {
+                    "term": "Docker",
+                    "definition": "A platform for developers and sysadmins to build, run, and share applications with containers."
+                },
+                {
+                    "term": "Microservices",
+                    "definition": "An architectural style that structures an application as a collection of services that are highly maintainable and testable."
+                }
+            ]
         }
     ]
 }

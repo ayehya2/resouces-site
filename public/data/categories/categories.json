@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-01-03T00:00:00Z",
+  "lastUpdated": "2026-01-28T08:26:20.268Z",
   "categories": [
     {
       "id": "artificial-intelligence",
@@ -11,7 +11,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 6
     },
     {
       "id": "cybersecurity",
@@ -26,7 +26,7 @@
         "hacking-tools"
       ],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 59
     },
     {
       "id": "hacking-tools",
@@ -59,7 +59,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 1
     },
     {
       "id": "networking",
@@ -70,7 +70,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 1
     },
     {
       "id": "web-development",
@@ -81,7 +81,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 28
     },
     {
       "id": "databases",
@@ -105,7 +105,7 @@
         "linux"
       ],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 2
     },
     {
       "id": "linux",
@@ -116,7 +116,7 @@
       "parentCategory": "operating-systems",
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 1
     },
     {
       "id": "programming-languages",
@@ -127,7 +127,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 8
     },
     {
       "id": "algorithms-data-structures",
@@ -149,7 +149,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 2
     },
     {
       "id": "datasets",
@@ -182,7 +182,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 5
     },
     {
       "id": "github-repositories",
@@ -193,7 +193,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 43
     },
     {
       "id": "software",
@@ -204,7 +204,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 30
     },
     {
       "id": "useful-websites",
@@ -215,7 +215,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 38
     },
     {
       "id": "youtube-channels",
@@ -270,7 +270,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 1
     },
     {
       "id": "ethical-hacking",
@@ -281,7 +281,7 @@
       "parentCategory": "cybersecurity",
       "subcategories": [],
       "featured": false,
-      "resourceCount": 0
+      "resourceCount": 1
     },
     {
       "id": "miscellaneous",
@@ -303,7 +303,7 @@
       "parentCategory": null,
       "subcategories": [],
       "featured": true,
-      "resourceCount": 0
+      "resourceCount": 1
     }
   ]
 }

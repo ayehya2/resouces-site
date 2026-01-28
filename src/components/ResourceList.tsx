@@ -1,26 +1,48 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useResourceStore } from '@/lib/store';
 import { ResourceCard } from './cards/ResourceCard';
 import { MinimalResourceList } from './MinimalResourceList';
 import { Icon } from './Icon';
-import type { Resource } from '@/types';
+import type { Resource, Category } from '@/types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ResourceListProps {
     resources: Resource[];
     groupByCategory?: boolean;
     pageSize?: number;
+    showPagination?: boolean;
+    onVisibleCategoriesChange?: (categoryIds: string[]) => void;
 }
 
-export function ResourceList({ resources, groupByCategory = true, pageSize: initialPageSize = 75 }: ResourceListProps) {
+export function ResourceList({
+    resources,
+    groupByCategory = true,
+    pageSize: initialPageSize = 75,
+    showPagination = true,
+    onVisibleCategoriesChange
+}: ResourceListProps) {
     const { viewMode, categories } = useResourceStore();
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(initialPageSize);
 
-    // Reset page when resources change
-    useMemo(() => {
+    const totalPages = Math.ceil(resources.length / pageSize);
+    const paginatedResources = useMemo(() => {
+        if (!showPagination) return resources;
+        return resources.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    }, [resources, currentPage, pageSize, showPagination]);
+
+    // Track visible categories for OnThisPage
+    useEffect(() => {
+        if (onVisibleCategoriesChange && groupByCategory) {
+            const visibleIds = Array.from(new Set(paginatedResources.flatMap(r => r.categories)));
+            onVisibleCategoriesChange(visibleIds);
+        }
+    }, [paginatedResources, onVisibleCategoriesChange, groupByCategory]);
+
+    // Reset page when resources or page size changes
+    useEffect(() => {
         setCurrentPage(1);
     }, [resources.length, pageSize]);
 
@@ -32,50 +54,93 @@ export function ResourceList({ resources, groupByCategory = true, pageSize: init
         );
     }
 
-    const totalPages = Math.ceil(resources.length / pageSize);
-    const paginatedResources = resources.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-
     // Grouping logic for the current page
     const renderGrouped = () => {
-        const groupedResources = paginatedResources.reduce((acc, resource) => {
-            const primaryCategoryId = resource.categories[0];
-            if (!acc[primaryCategoryId]) {
-                acc[primaryCategoryId] = [];
+        // First, identify all top-level categories involved
+        const topLevelGroups: Record<string, { category: Category; resources: Resource[]; subGroups: Record<string, { category: Category; resources: Resource[] }> }> = {};
+
+        paginatedResources.forEach(resource => {
+            const primaryId = resource.categories[0];
+            const category = categories.find(c => c.id === primaryId);
+            if (!category) return;
+
+            let parentId = category.parentCategory || category.id;
+            let parentCategory = categories.find(c => c.id === parentId) || category;
+
+            if (!topLevelGroups[parentCategory.id]) {
+                topLevelGroups[parentCategory.id] = {
+                    category: parentCategory,
+                    resources: [],
+                    subGroups: {}
+                };
             }
-            acc[primaryCategoryId].push(resource);
-            return acc;
-        }, {} as Record<string, Resource[]>);
+
+            if (category.id === parentCategory.id) {
+                topLevelGroups[parentCategory.id].resources.push(resource);
+            } else {
+                if (!topLevelGroups[parentCategory.id].subGroups[category.id]) {
+                    topLevelGroups[parentCategory.id].subGroups[category.id] = {
+                        category,
+                        resources: []
+                    };
+                }
+                topLevelGroups[parentCategory.id].subGroups[category.id].resources.push(resource);
+            }
+        });
 
         return (
-            <div className="space-y-8">
-                {Object.entries(groupedResources).map(([categoryId, categoryResources]) => {
-                    const category = categories.find(c => c.id === categoryId);
-                    if (!category) return null;
-
-                    return (
-                        <div key={categoryId} id={category.id}>
-                            <div className="mb-4 pb-1.5 border-b border-border/50">
-                                <h2 className="text-base font-bold flex items-center">
-                                    <Icon name={category.icon || 'folder'} className="h-4 w-4 text-primary mr-2" useEmoji />
-                                    {category.name}
-                                    <span className="text-[11px] font-mono font-normal text-muted-foreground/40 ml-2 pt-0.5">
-                                        / {categoryResources.length}
-                                    </span>
-                                </h2>
-                            </div>
-
-                            {viewMode === 'minimal' ? (
-                                <MinimalResourceList resources={categoryResources} />
-                            ) : (
-                                <div className="space-y-4">
-                                    {categoryResources.map((resource) => (
-                                        <ResourceCard key={resource.id} resource={resource} />
-                                    ))}
-                                </div>
-                            )}
+            <div className="space-y-12">
+                {Object.values(topLevelGroups).map(({ category, resources: parentResources, subGroups }) => (
+                    <div key={category.id} id={category.id} className="space-y-6">
+                        {/* Parent Category Header */}
+                        <div className="pb-2 border-b-2 border-primary/20">
+                            <h2 className="text-lg font-black uppercase tracking-widest flex items-center">
+                                <Icon name={category.icon || 'folder'} className="h-5 w-5 text-primary mr-3" useEmoji />
+                                {category.name}
+                                <span className="text-xs font-mono font-normal text-muted-foreground/30 ml-4 pt-1">
+                                    / {parentResources.length + Object.values(subGroups).reduce((acc, g) => acc + g.resources.length, 0)} TOTAL
+                                </span>
+                            </h2>
                         </div>
-                    );
-                })}
+
+                        {/* Top-level resources */}
+                        {parentResources.length > 0 && (
+                            <div className="space-y-4">
+                                {viewMode === 'minimal' ? (
+                                    <MinimalResourceList resources={parentResources} />
+                                ) : (
+                                    parentResources.map(resource => (
+                                        <ResourceCard key={resource.id} resource={resource} />
+                                    ))
+                                )}
+                            </div>
+                        )}
+
+                        {/* Subcategory groups */}
+                        {Object.values(subGroups).map(({ category: subcat, resources: subcatResources }) => (
+                            <div key={subcat.id} id={subcat.id} className="ml-4 md:ml-8 space-y-4">
+                                <div className="pb-1 border-b border-border/50">
+                                    <h3 className="text-sm font-bold flex items-center text-muted-foreground hover:text-foreground transition-colors group">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-2 group-hover:bg-primary transition-colors" />
+                                        {subcat.name}
+                                        <span className="text-[10px] font-mono font-normal text-muted-foreground/30 ml-2">
+                                            / {subcatResources.length}
+                                        </span>
+                                    </h3>
+                                </div>
+                                {viewMode === 'minimal' ? (
+                                    <MinimalResourceList resources={subcatResources} />
+                                ) : (
+                                    <div className="space-y-3">
+                                        {subcatResources.map(resource => (
+                                            <ResourceCard key={resource.id} resource={resource} />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                ))}
             </div>
         );
     };
@@ -98,77 +163,79 @@ export function ResourceList({ resources, groupByCategory = true, pageSize: init
             {groupByCategory ? renderGrouped() : renderFlat()}
 
             {/* Pagination Controls */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 border-t border-border mt-12">
-                <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Show</span>
-                    <select
-                        value={pageSize}
-                        onChange={(e) => setPageSize(Number(e.target.value))}
-                        className="bg-background border border-border text-xs px-2 py-1 focus:outline-none focus:border-primary font-mono"
-                    >
-                        <option value={75}>75 / Page</option>
-                        <option value={100}>100 / Page</option>
-                        <option value={150}>150 / Page</option>
-                    </select>
-                </div>
-
-                {totalPages > 1 && (
+            {showPagination && totalPages > 0 && (
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 border-t border-border mt-12 bg-card/30 px-6">
                     <div className="flex items-center gap-3">
-                        <button
-                            onClick={() => {
-                                setCurrentPage(p => Math.max(1, p - 1));
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}
-                            disabled={currentPage === 1}
-                            className="p-2 border border-border hover:bg-muted disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
-                            aria-label="Previous page"
+                        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">Show</span>
+                        <select
+                            value={pageSize}
+                            onChange={(e) => setPageSize(Number(e.target.value))}
+                            className="bg-background border border-border text-[11px] font-bold px-3 py-1.5 focus:outline-none focus:border-primary font-mono transition-colors cursor-pointer"
                         >
-                            <ChevronLeft className="h-4 w-4" />
-                        </button>
-
-                        <div className="flex items-center gap-1.5">
-                            {Array.from({ length: totalPages }, (_, i) => i + 1)
-                                .filter(p => p === 1 || p === totalPages || Math.abs(p - currentPage) <= 1)
-                                .map((pageNum, idx, arr) => {
-                                    const showEllipsis = idx > 0 && pageNum - arr[idx - 1] > 1;
-                                    return (
-                                        <div key={pageNum} className="flex items-center gap-1.5">
-                                            {showEllipsis && <span className="text-muted-foreground text-xs font-mono">...</span>}
-                                            <button
-                                                onClick={() => {
-                                                    setCurrentPage(pageNum);
-                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                                }}
-                                                className={`w-8 h-8 flex items-center justify-center border font-mono text-[11px] transition-all ${currentPage === pageNum
-                                                    ? 'bg-primary text-primary-foreground border-primary font-bold shadow-sm shadow-primary/20'
-                                                    : 'border-border text-muted-foreground hover:border-primary/50 hover:text-foreground'
-                                                    }`}
-                                            >
-                                                {pageNum}
-                                            </button>
-                                        </div>
-                                    );
-                                })}
-                        </div>
-
-                        <button
-                            onClick={() => {
-                                setCurrentPage(p => Math.min(totalPages, p + 1));
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}
-                            disabled={currentPage === totalPages}
-                            className="p-2 border border-border hover:bg-muted disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
-                            aria-label="Next page"
-                        >
-                            <ChevronRight className="h-4 w-4" />
-                        </button>
+                            <option value={75}>75 / PAGE</option>
+                            <option value={100}>100 / PAGE</option>
+                            <option value={150}>150 / PAGE</option>
+                        </select>
                     </div>
-                )}
 
-                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest bg-muted px-2 py-1">
-                    {currentPage} / {totalPages} Pages
+                    {totalPages > 1 && (
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => {
+                                    setCurrentPage(p => Math.max(1, p - 1));
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                disabled={currentPage === 1}
+                                className="w-10 h-10 flex items-center justify-center border border-border hover:bg-muted disabled:opacity-30 disabled:hover:bg-transparent transition-all transition-colors"
+                                aria-label="Previous page"
+                            >
+                                <ChevronLeft className="h-4 w-4" />
+                            </button>
+
+                            <div className="flex items-center gap-1.5">
+                                {Array.from({ length: totalPages }, (_, i) => i + 1)
+                                    .filter(p => p === 1 || p === totalPages || Math.abs(p - currentPage) <= 1)
+                                    .map((pageNum, idx, arr) => {
+                                        const showEllipsis = idx > 0 && pageNum - arr[idx - 1] > 1;
+                                        return (
+                                            <div key={pageNum} className="flex items-center gap-1.5">
+                                                {showEllipsis && <span className="text-muted-foreground text-xs font-mono w-4 text-center">...</span>}
+                                                <button
+                                                    onClick={() => {
+                                                        setCurrentPage(pageNum);
+                                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                    }}
+                                                    className={`w-10 h-10 flex items-center justify-center border font-mono text-[11px] transition-all ${currentPage === pageNum
+                                                        ? 'bg-primary text-primary-foreground border-primary font-bold shadow-lg shadow-primary/20 scale-105'
+                                                        : 'border-border text-muted-foreground hover:border-primary/50 hover:text-foreground'
+                                                        }`}
+                                                >
+                                                    {pageNum}
+                                                </button>
+                                            </div>
+                                        );
+                                    })}
+                            </div>
+
+                            <button
+                                onClick={() => {
+                                    setCurrentPage(p => Math.min(totalPages, p + 1));
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                disabled={currentPage === totalPages}
+                                className="w-10 h-10 flex items-center justify-center border border-border hover:bg-muted disabled:opacity-30 disabled:hover:bg-transparent transition-all transition-colors"
+                                aria-label="Next page"
+                            >
+                                <ChevronRight className="h-4 w-4" />
+                            </button>
+                        </div>
+                    )}
+
+                    <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest bg-muted px-3 py-1.5 border border-border">
+                        PAGE {currentPage} <span className="mx-1 opacity-30">/</span> {totalPages}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

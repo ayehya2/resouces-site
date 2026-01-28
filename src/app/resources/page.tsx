@@ -27,6 +27,8 @@ export default function ResourcesPage() {
     const [sortBy, setSortBy] = useState<'newest' | 'popular' | 'alphabetical'>('newest');
     const [showFilters, setShowFilters] = useState(true);
     const [activeCategoryFilter, setActiveCategoryFilter] = useState<string | null>(null);
+    const [visibleCategoryIds, setVisibleCategoryIds] = useState<string[]>([]);
+
     const router = useRouter();
 
     useEffect(() => {
@@ -88,15 +90,46 @@ export default function ResourcesPage() {
         return result;
     }, [resources, searchQuery, searchIndex, filters, sortBy, activeCategoryFilter]);
 
-    const categoriesWithCounts = categories.map(cat => ({
-        ...cat,
-        resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
-    }));
+    // Use pre-calculated counts from metadata sync
+    const categoriesWithCounts = categories;
 
-    // Get parent categories with resources for OnThisPage
-    const parentCategoriesForNav = categoriesWithCounts
-        .filter(c => !c.parentCategory && (c.resourceCount || 0) > 0)
-        .map(c => ({ id: c.id, name: c.name }));
+    // Derive the items for OnThisPage based on what's visible
+    const navItems = useMemo(() => {
+        const items: { id: string; name: string; isSubcategory?: boolean }[] = [];
+        const addedIds = new Set<string>();
+
+        // We want to show top-level categories that are visible,
+        // and their subcategories if those are also visible.
+
+        // Sort visible categories to keep order consistent with metadata
+        const orderedVisibleCategories = categories
+            .filter(c => visibleCategoryIds.includes(c.id));
+
+        orderedVisibleCategories.forEach(cat => {
+            if (!cat.parentCategory) {
+                if (!addedIds.has(cat.id)) {
+                    items.push({ id: cat.id, name: cat.name });
+                    addedIds.has(cat.id);
+                }
+            } else {
+                // It's a subcategory. We need to make sure the parent is in the list.
+                const parent = categories.find(c => c.id === cat.parentCategory);
+                if (parent && !addedIds.has(parent.id)) {
+                    items.push({ id: parent.id, name: parent.name });
+                    addedIds.add(parent.id);
+                }
+
+                if (!addedIds.has(cat.id)) {
+                    items.push({ id: cat.id, name: cat.name, isSubcategory: true });
+                    addedIds.add(cat.id);
+                }
+            }
+        });
+
+        // Final sort to ensure parents are always before children even if they weren't in visibleCategoryIds
+        // Actually the logic above handles parent insertion.
+        return items;
+    }, [visibleCategoryIds, categories]);
 
     return (
         <div className="min-h-screen bg-background">
@@ -136,12 +169,16 @@ export default function ResourcesPage() {
                         </div>
 
                         {/* Resource List */}
-                        <ResourceList resources={displayedResources} groupByCategory={true} />
+                        <ResourceList
+                            resources={displayedResources}
+                            groupByCategory={true}
+                            onVisibleCategoriesChange={setVisibleCategoryIds}
+                        />
                     </main>
 
                     {/* Right Sidebar - "On this page" */}
                     <OnThisPage
-                        subcategories={parentCategoriesForNav}
+                        items={navItems}
                         onFilter={setActiveCategoryFilter}
                         activeFilter={activeCategoryFilter}
                     />

@@ -30,10 +30,7 @@ export default function HomePage() {
         loadData();
     }, [setResources, setCategories, setTags]);
 
-    const categoriesWithCounts = categories.map(cat => ({
-        ...cat,
-        resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
-    }));
+    const categoriesWithCounts = categories;
 
     const featuredCategories = categoriesWithCounts.filter(cat => cat.featured);
     const recentResources = resources
@@ -55,11 +52,6 @@ export default function HomePage() {
                                 A premium, community-driven directory of high-quality technical resources, tools, and learning materials.
                                 Manually vetted for excellence.
                             </p>
-                        </div>
-
-                        {/* Search Bar - Center Piece */}
-                        <div className="max-w-xl mx-auto pt-4">
-                            <SearchBar />
                         </div>
 
                         {/* Stats - Symmetrical & Sleek */}
@@ -116,7 +108,7 @@ export default function HomePage() {
                                 Explore All →
                             </Link>
                         </div>
-                        <ResourceList resources={recentResources} groupByCategory={false} />
+                        <ResourceList resources={recentResources} groupByCategory={false} showPagination={false} />
                     </div>
                 </section>
             )}

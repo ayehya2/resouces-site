@@ -27,6 +27,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         setTags
     } = useResourceStore();
 
+    const [visibleCategoryIds, setVisibleCategoryIds] = useState<string[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(params.id);
     const [subcategoryFilter, setSubcategoryFilter] = useState<string | null>(null);
     const router = useRouter();
@@ -45,13 +46,10 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         };
 
         loadData();
-    }, [setResources, setCategories, setTags]);
+    }, [setResources, setCategories, setTags, params.id]);
 
     // Get current category
     const currentCategory = categories.find(c => c.id === (selectedCategory || params.id));
-
-    // Get subcategories
-    const subcategories = categories.filter(c => c.parentCategory === currentCategory?.id);
 
     // Filter resources
     const displayedResources = useMemo(() => {
@@ -65,11 +63,19 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         return filtered.filter(r => r.status === 'active');
     }, [resources, currentCategory, subcategoryFilter]);
 
-    // Calculate resource counts for categories
-    const categoriesWithCounts = categories.map(cat => ({
-        ...cat,
-        resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
-    }));
+    // Use pre-calculated counts from metadata sync
+    const categoriesWithCounts = categories;
+
+    // Derive nav items
+    const navItems = useMemo(() => {
+        return categories
+            .filter(c => visibleCategoryIds.includes(c.id))
+            .map(c => ({
+                id: c.id,
+                name: c.name,
+                isSubcategory: c.parentCategory === currentCategory?.id
+            }));
+    }, [visibleCategoryIds, categories, currentCategory]);
 
     if (!currentCategory) {
         return <div className="container mx-auto px-4 py-12">Category not found</div>;
@@ -111,12 +117,16 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                             </div>
                         </div>
 
-                        <ResourceList resources={displayedResources} groupByCategory={false} />
+                        <ResourceList
+                            resources={displayedResources}
+                            groupByCategory={true}
+                            onVisibleCategoriesChange={setVisibleCategoryIds}
+                        />
                     </main>
 
                     {/* Right Sidebar - "On this page" */}
                     <OnThisPage
-                        subcategories={subcategories}
+                        items={navItems}
                         onFilter={setSubcategoryFilter}
                         activeFilter={subcategoryFilter}
                     />

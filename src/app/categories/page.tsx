@@ -29,10 +29,7 @@ export default function CategoriesPage() {
         }
     }, [setResources, setCategories, setTags, categories.length]);
 
-    const categoriesWithCounts = categories.map(cat => ({
-        ...cat,
-        resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
-    }));
+    const categoriesWithCounts = categories;
 
     const handleSelectCategory = (categoryId: string | null) => {
         if (categoryId) {

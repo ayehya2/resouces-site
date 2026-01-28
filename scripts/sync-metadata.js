@@ -89,10 +89,44 @@ function sync() {
             console.log('✅ Changelog updated with new resources.');
         }
 
-        // 4. Update Metadata
-        console.log('📊 Updating metadata...');
+        // 4. Update Categories with Counts
+        console.log('🏷️ Updating category resource counts...');
         const categoriesData = readJson(categoriesPath) || { categories: [] };
 
+        // Map to store counts
+        const exactCounts = {};
+        allResources.forEach(r => {
+            if (Array.isArray(r.categories)) {
+                r.categories.forEach(catId => {
+                    exactCounts[catId] = (exactCounts[catId] || 0) + 1;
+                });
+            }
+        });
+
+        // Update counts in categories.json
+        categoriesData.categories.forEach(cat => {
+            // Count resources directly in this category
+            let count = exactCounts[cat.id] || 0;
+
+            // Add counts from all its subcategories (recursively)
+            const getSubcategoryCounts = (parentId) => {
+                let subtotal = 0;
+                categoriesData.categories.filter(c => c.parentCategory === parentId).forEach(sub => {
+                    subtotal += (exactCounts[sub.id] || 0);
+                    subtotal += getSubcategoryCounts(sub.id);
+                });
+                return subtotal;
+            };
+
+            cat.resourceCount = count + getSubcategoryCounts(cat.id);
+        });
+
+        categoriesData.lastUpdated = now;
+        fs.writeFileSync(categoriesPath, JSON.stringify(categoriesData, null, 2));
+        console.log('✅ categories.json updated with dynamic counts.');
+
+        // 5. Update Metadata
+        console.log('📊 Updating metadata...');
         const verifiedResources = allResources.filter(r => r.verified).length;
         const featuredResources = allResources.filter(r => r.featured).length;
         const activeResources = allResources.filter(r => r.status === 'active').length;

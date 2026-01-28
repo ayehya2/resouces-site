@@ -92,4 +92,5 @@ export interface ResourceStore {
     setViewMode: (mode: 'minimal' | 'detailed') => void;
     toggleDarkMode: () => void;
     clearFilters: () => void;
+    voteResource: (resourceId: string, type: 'up' | 'down') => void;
 }

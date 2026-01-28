@@ -2,7 +2,6 @@
 
 import type { Resource } from '@/types';
 import { CheckCircle2, ExternalLink } from 'lucide-react';
-import { VotingControls } from './VotingControls';
 
 interface MinimalResourceListProps {
     resources: Resource[];
@@ -61,12 +60,6 @@ export function MinimalResourceList({ resources }: MinimalResourceListProps) {
                                     #{tag}
                                 </span>
                             ))}
-                            <VotingControls
-                                resourceId={resource.id}
-                                upvotes={resource.community?.upvotes || 0}
-                                downvotes={resource.community?.downvotes || 0}
-                                variant="minimal"
-                            />
                         </div>
                     </div>
                 </div>

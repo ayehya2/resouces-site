@@ -12,7 +12,9 @@ export function FilterPanel() {
         return categories.map((cat: Category) => ({
             ...cat,
             resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
-        })).sort((a, b) => a.name.localeCompare(b.name));
+        }))
+            .filter(cat => cat.resourceCount > 0) // Only show categories with resources
+            .sort((a, b) => a.name.localeCompare(b.name));
     }, [categories, resources]);
 
     const tagsWithCounts = useMemo(() => {

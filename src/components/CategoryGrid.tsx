@@ -1,42 +1,36 @@
 import type { Category } from '@/types';
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 interface CategoryGridProps {
     categories: Category[];
 }
 
 export function CategoryGrid({ categories }: CategoryGridProps) {
+    // Filter out categories with 0 resources
+    const validCategories = categories.filter(c => (c.resourceCount || 0) > 0);
+
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {categories.map((category) => (
-                <a
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {validCategories.map((category) => (
+                <Link
                     key={category.id}
-                    href={`/resources?category=${category.id}`}
-                    className="group block border border-border bg-card p-6 hover:border-primary transition-all hover:shadow-lg"
+                    href={`/categories/${category.id}`}
+                    className="group block border border-border bg-card p-4 hover:border-primary transition-colors"
                 >
-                    <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors truncate">
-                                {category.name}
-                            </h3>
-                            <p className="text-sm text-muted-foreground line-clamp-2">
-                                {category.description}
-                            </p>
-                        </div>
-                        {category.color && (
-                            <div
-                                className="w-3 h-3 flex-shrink-0 mt-1 border border-border"
-                                style={{ backgroundColor: category.color }}
-                            />
+                    <div className="flex items-center justify-between gap-3 mb-2">
+                        <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
+                            {category.name}
+                        </h3>
+                        {category.resourceCount !== undefined && (
+                            <span className="text-xs text-muted-foreground font-mono">
+                                {category.resourceCount}
+                            </span>
                         )}
                     </div>
-
-                    {category.resourceCount !== undefined && (
-                        <div className="mt-4 text-xs text-muted-foreground">
-                            {category.resourceCount} {category.resourceCount === 1 ? 'resource' : 'resources'}
-                        </div>
-                    )}
-                </a>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                        {category.description}
+                    </p>
+                </Link>
             ))}
         </div>
     );

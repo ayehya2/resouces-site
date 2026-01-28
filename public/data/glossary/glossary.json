@@ -1,0 +1,102 @@
+{
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-28T00:00:00Z",
+    "categories": [
+        {
+            "name": "General",
+            "terms": [
+                {
+                    "term": "Open Source",
+                    "definition": "Software with source code that anyone can inspect, modify, and enhance. Often distributed under licenses like MIT, GPL, or Apache."
+                },
+                {
+                    "term": "Freemium",
+                    "definition": "A pricing model where basic features are free, but advanced features require payment."
+                },
+                {
+                    "term": "Free Tier",
+                    "definition": "A limited version of a paid service available at no cost, often with usage restrictions."
+                },
+                {
+                    "term": "Self-Hosted",
+                    "definition": "Software you can run on your own servers, giving you full control over data and customization."
+                },
+                {
+                    "term": "No Sign-up",
+                    "definition": "Services that can be used immediately without creating an account."
+                }
+            ]
+        },
+        {
+            "name": "Privacy & Security",
+            "terms": [
+                {
+                    "term": "VPN (Virtual Private Network)",
+                    "definition": "A service that encrypts your internet connection and masks your IP address for privacy and security."
+                },
+                {
+                    "term": "DNS (Domain Name System)",
+                    "definition": "The system that translates domain names (like google.com) into IP addresses that computers can understand."
+                },
+                {
+                    "term": "Adblocking",
+                    "definition": "Technology that prevents advertisements from loading on websites, improving privacy and page load times."
+                },
+                {
+                    "term": "End-to-End Encryption",
+                    "definition": "A security method where only the communicating users can read the messages, not even the service provider."
+                },
+                {
+                    "term": "Two-Factor Authentication (2FA)",
+                    "definition": "An extra layer of security requiring two forms of identification before granting access."
+                }
+            ]
+        },
+        {
+            "name": "Development",
+            "terms": [
+                {
+                    "term": "API (Application Programming Interface)",
+                    "definition": "A set of rules and protocols for building and interacting with software applications."
+                },
+                {
+                    "term": "REST API",
+                    "definition": "A web API that follows REST architectural principles, using HTTP methods like GET, POST, PUT, DELETE."
+                },
+                {
+                    "term": "CLI (Command Line Interface)",
+                    "definition": "A text-based interface for interacting with software and operating systems."
+                },
+                {
+                    "term": "Repository",
+                    "definition": "A storage location for software projects, often hosted on platforms like GitHub or GitLab."
+                },
+                {
+                    "term": "CI/CD",
+                    "definition": "Continuous Integration/Continuous Deployment - automated building, testing, and deployment of code."
+                }
+            ]
+        },
+        {
+            "name": "Licensing",
+            "terms": [
+                {
+                    "term": "MIT License",
+                    "definition": "A permissive open-source license allowing nearly unlimited freedom with software use and distribution."
+                },
+                {
+                    "term": "GPL (GNU General Public License)",
+                    "definition": "A copyleft license requiring derivative works to be distributed under the same license terms."
+                },
+                {
+                    "term": "Apache License",
+                    "definition": "A permissive license similar to MIT but with explicit patent rights grants."
+                },
+                {
+                    "term": "Proprietary Software",
+                    "definition": "Software with restricted licensing where the source code is not publicly available."
+                }
+            ]
+        }
+    ]
+}

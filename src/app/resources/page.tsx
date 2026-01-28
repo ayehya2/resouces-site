@@ -6,10 +6,11 @@ import { loadResources, loadCategories, loadTags } from '@/lib/data';
 import { createSearchIndex, searchResources } from '@/lib/search';
 import { filterResources } from '@/lib/filters';
 import { ResourceList } from '@/components/ResourceList';
-import { FilterPanel } from '@/components/filters/FilterPanel';
 import { SortOptions } from '@/components/filters/SortOptions';
 import { ViewModeToggle } from '@/components/ViewModeToggle';
-import { Search } from 'lucide-react';
+import { CategorySidebar } from '@/components/CategorySidebar';
+import { OnThisPage } from '@/components/OnThisPage';
+import { useRouter } from 'next/navigation';
 
 export default function ResourcesPage() {
     const {
@@ -25,6 +26,8 @@ export default function ResourcesPage() {
 
     const [sortBy, setSortBy] = useState<'newest' | 'popular' | 'alphabetical'>('newest');
     const [showFilters, setShowFilters] = useState(true);
+    const [activeCategoryFilter, setActiveCategoryFilter] = useState<string | null>(null);
+    const router = useRouter();
 
     useEffect(() => {
         const loadData = async () => {
@@ -63,6 +66,11 @@ export default function ResourcesPage() {
         // Apply filters
         result = filterResources(result, filters);
 
+        // Apply category filter from OnThisPage
+        if (activeCategoryFilter) {
+            result = result.filter(r => r.categories.includes(activeCategoryFilter));
+        }
+
         // Apply sorting
         switch (sortBy) {
             case 'newest':
@@ -81,43 +89,37 @@ export default function ResourcesPage() {
         }
 
         return result;
-    }, [resources, searchQuery, searchIndex, filters, sortBy]);
+    }, [resources, searchQuery, searchIndex, filters, sortBy, activeCategoryFilter]);
+
+    const categoriesWithCounts = categories.map(cat => ({
+        ...cat,
+        resourceCount: resources.filter(r => r.categories.includes(cat.id)).length
+    }));
+
+    // Get parent categories with resources for OnThisPage
+    const parentCategoriesForNav = categoriesWithCounts
+        .filter(c => !c.parentCategory && (c.resourceCount || 0) > 0)
+        .map(c => ({ id: c.id, name: c.name }));
 
     return (
         <div className="min-h-screen bg-background">
-            {/* Header */}
-            <div className="border-b border-border bg-card">
-                <div className="container mx-auto px-4 py-8">
-                    <h1 className="text-3xl font-bold mb-4">Browse Resources</h1>
-
-                    {/* Search */}
-                    <div className="flex items-center gap-3 px-4 py-3 bg-background border-2 border-border max-w-2xl">
-                        <Search className="h-5 w-5 text-muted-foreground" />
-                        <input
-                            type="text"
-                            placeholder="Search resources..."
-                            className="flex-1 bg-transparent outline-none"
-                            value={searchQuery}
-                            onChange={(e) => useResourceStore.getState().setSearchQuery(e.target.value)}
-                        />
-                    </div>
-                </div>
-            </div>
-
             {/* Main Content */}
             <div className="container mx-auto px-4 py-8">
                 <div className="flex gap-8">
-                    {/* Filters Sidebar */}
-                    {showFilters && (
-                        <aside className="w-64 flex-shrink-0">
-                            <FilterPanel />
-                        </aside>
-                    )}
+                    {/* Left Sidebar - Categories & Filters */}
+                    <CategorySidebar
+                        categories={categoriesWithCounts}
+                        onSelectCategory={(catId) => {
+                            if (catId) router.push(`/categories/${catId}`);
+                        }}
+                        selectedCategory={null}
+                        showFilters={showFilters}
+                    />
 
                     {/* Resources */}
                     <main className="flex-1 min-w-0">
                         {/* Toolbar */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 p-4 bg-card border border-border">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 p-4 bg-card border border-border">
                             <div className="text-sm font-medium">
                                 <span className="text-primary font-bold">{displayedResources.length}</span>
                                 <span className="text-muted-foreground ml-1">{displayedResources.length === 1 ? 'Resource' : 'Resources'} Found</span>
@@ -125,16 +127,13 @@ export default function ResourcesPage() {
 
                             <div className="flex flex-wrap items-center gap-3">
                                 <ViewModeToggle />
-
                                 <div className="h-4 w-px bg-border hidden sm:block mx-1" />
-
                                 <button
                                     onClick={() => setShowFilters(!showFilters)}
                                     className="text-xs px-3 py-1.5 border border-border hover:bg-muted transition-colors font-medium flex items-center gap-2"
                                 >
                                     {showFilters ? 'Hide' : 'Show'} Filters
                                 </button>
-
                                 <SortOptions value={sortBy} onChange={setSortBy} />
                             </div>
                         </div>
@@ -142,6 +141,13 @@ export default function ResourcesPage() {
                         {/* Resource List */}
                         <ResourceList resources={displayedResources} />
                     </main>
+
+                    {/* Right Sidebar - "On this page" */}
+                    <OnThisPage
+                        subcategories={parentCategoriesForNav}
+                        onFilter={setActiveCategoryFilter}
+                        activeFilter={activeCategoryFilter}
+                    />
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import type { Resource } from '@/types';
 import { ExternalLink, Github, FileText, Download, ChevronDown, ChevronUp, CheckCircle2 } from 'lucide-react';
 import { isNewResource, getTrustScore, getWorkingRatio } from '@/lib/utils';
-import { VotingControls } from '../VotingControls';
 
 interface ResourceCardProps {
     resource: Resource;
@@ -114,25 +113,6 @@ export function ResourceCard({ resource }: ResourceCardProps) {
                     </a>
                 ))}
             </div>
-
-            {/* Community Stats */}
-            {resource.community && (
-                <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
-                    <VotingControls
-                        resourceId={resource.id}
-                        upvotes={resource.community.upvotes}
-                        downvotes={resource.community.downvotes}
-                    />
-
-                    {workingRatio > 0 && (
-                        <div className="text-xs">
-                            <span className={workingRatio >= 80 ? 'text-green-500' : workingRatio >= 50 ? 'text-yellow-500' : 'text-red-500'}>
-                                {workingRatio.toFixed(0)}% working
-                            </span>
-                        </div>
-                    )}
-                </div>
-            )}
 
             {/* Metadata */}
             {resource.metadata && (

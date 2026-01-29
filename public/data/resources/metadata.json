@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-01-29T00:39:12.548Z",
+  "lastUpdated": "2026-01-29T00:52:29.132Z",
   "statistics": {
     "totalResources": 107,
     "verifiedResources": 107,
@@ -15,7 +15,7 @@
     "nextScrapingScheduled": null
   },
   "dataIntegrity": {
-    "lastValidation": "2026-01-29T00:39:12.548Z",
+    "lastValidation": "2026-01-29T00:52:29.132Z",
     "validationStatus": "passed",
     "issues": []
   }

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { SelectionToolbar } from '@/components/SelectionToolbar';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
                     <Header />
                     <main className="flex-1">{children}</main>
                     <Footer />
+                    <SelectionToolbar />
                 </div>
             </body>
         </html>

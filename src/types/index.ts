@@ -84,6 +84,7 @@ export interface ResourceStore {
     searchQuery: string;
     darkMode: boolean;
     viewMode: 'minimal' | 'detailed';
+    selectedResourceIds: string[];
     setResources: (resources: Resource[]) => void;
     setCategories: (categories: Category[]) => void;
     setTags: (tags: Tag[]) => void;
@@ -93,4 +94,7 @@ export interface ResourceStore {
     toggleDarkMode: () => void;
     clearFilters: () => void;
     voteResource: (resourceId: string, type: 'up' | 'down') => void;
+    toggleResourceSelection: (id: string) => void;
+    clearSelection: () => void;
+    selectAllVisible: (ids: string[]) => void;
 }

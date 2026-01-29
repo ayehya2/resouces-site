@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import type { Resource } from '@/types';
-import { ExternalLink, Github, FileText, Download, ChevronDown, ChevronUp, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Github, FileText, Download, ChevronDown, ChevronUp, CheckCircle2, CheckSquare, Square } from 'lucide-react';
 import { isNewResource, getTrustScore, getWorkingRatio } from '@/lib/utils';
+import { useResourceStore } from '@/lib/store';
 import { Icon } from '../Icon';
 
 interface ResourceCardProps {
@@ -24,8 +25,24 @@ export function ResourceCard({ resource }: ResourceCardProps) {
 
 
 
+    const { selectedResourceIds, toggleResourceSelection } = useResourceStore();
+    const isSelected = selectedResourceIds.includes(resource.id);
+
     return (
-        <article className="border border-border bg-card p-4 hover:border-primary transition-all hover:shadow-lg">
+        <article className={`border p-4 transition-all hover:shadow-lg relative group/card ${isSelected
+                ? 'border-primary bg-primary/5 ring-1 ring-primary'
+                : 'border-border bg-card hover:border-primary'
+            }`}>
+            {/* Selection Checkbox (Top Left) */}
+            <button
+                onClick={() => toggleResourceSelection(resource.id)}
+                className={`absolute -top-2 -left-2 z-10 p-1.5 rounded-md border shadow-sm transition-all ${isSelected
+                        ? 'bg-primary border-primary text-primary-foreground scale-100 opacity-100'
+                        : 'bg-background border-border text-muted-foreground scale-90 opacity-0 group-hover/card:opacity-100 group-hover/card:scale-100'
+                    }`}
+            >
+                {isSelected ? <CheckSquare className="h-3.5 w-3.5" /> : <Square className="h-3.5 w-3.5" />}
+            </button>
             {/* Header */}
             <div className="flex items-start justify-between gap-4 mb-2">
                 <div className="flex-1 min-w-0">

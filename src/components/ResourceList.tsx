@@ -100,6 +100,29 @@ export function ResourceList({
                                 <span className="text-xs font-mono font-normal text-muted-foreground/30 ml-4 pt-1">
                                     / {parentResources.length + Object.values(subGroups).reduce((acc, g) => acc + g.resources.length, 0)} TOTAL
                                 </span>
+
+                                <button
+                                    onClick={() => {
+                                        const allIds = [...parentResources, ...Object.values(subGroups).flatMap(g => g.resources)].map(r => r.id);
+                                        const currentSelected = useResourceStore.getState().selectedResourceIds;
+                                        const allAlreadySelected = allIds.every(id => currentSelected.includes(id));
+
+                                        if (allAlreadySelected) {
+                                            // Toggle off if all are selected
+                                            useResourceStore.setState({
+                                                selectedResourceIds: currentSelected.filter(id => !allIds.includes(id))
+                                            });
+                                        } else {
+                                            useResourceStore.getState().selectAllVisible(allIds);
+                                        }
+                                    }}
+                                    className="ml-auto flex items-center gap-2 text-[10px] font-bold px-3 py-1 bg-muted hover:bg-primary hover:text-primary-foreground border border-border transition-all group/select uppercase tracking-tighter"
+                                >
+                                    <div className="w-2.5 h-2.5 border border-current rounded-sm flex items-center justify-center">
+                                        <div className="w-1.5 h-1.5 bg-current rounded-sm opacity-0 group-hover/select:opacity-100 transition-opacity" />
+                                    </div>
+                                    Quick Select Category
+                                </button>
                             </h2>
                         </div>
 
@@ -126,6 +149,25 @@ export function ResourceList({
                                         <span className="text-[10px] font-mono font-normal text-muted-foreground/30 ml-2">
                                             / {subcatResources.length}
                                         </span>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                const subIds = subcatResources.map(r => r.id);
+                                                const currentSelected = useResourceStore.getState().selectedResourceIds;
+                                                const allSubSelected = subIds.every(id => currentSelected.includes(id));
+
+                                                if (allSubSelected) {
+                                                    useResourceStore.setState({
+                                                        selectedResourceIds: currentSelected.filter(id => !subIds.includes(id))
+                                                    });
+                                                } else {
+                                                    useResourceStore.getState().selectAllVisible(subIds);
+                                                }
+                                            }}
+                                            className="ml-2 opacity-0 group-hover:opacity-100 text-[9px] font-bold text-primary hover:underline transition-opacity uppercase tracking-tighter"
+                                        >
+                                            [Select All]
+                                        </button>
                                     </h3>
                                 </div>
                                 {viewMode === 'minimal' ? (

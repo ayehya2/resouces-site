@@ -24,6 +24,7 @@ export const useResourceStore = create<ResourceStore>()(
             searchQuery: '',
             darkMode: true, // Default to dark mode
             viewMode: 'minimal',
+            selectedResourceIds: [],
 
             setResources: (resources: Resource[]) => set({ resources }),
             setCategories: (categories: Category[]) => set({ categories }),
@@ -70,12 +71,27 @@ export const useResourceStore = create<ResourceStore>()(
                         };
                     }),
                 })),
+
+            toggleResourceSelection: (id: string) =>
+                set((state) => ({
+                    selectedResourceIds: state.selectedResourceIds.includes(id)
+                        ? state.selectedResourceIds.filter((rid) => rid !== id)
+                        : [...state.selectedResourceIds, id],
+                })),
+
+            clearSelection: () => set({ selectedResourceIds: [] }),
+
+            selectAllVisible: (ids: string[]) =>
+                set((state) => ({
+                    selectedResourceIds: Array.from(new Set([...state.selectedResourceIds, ...ids])),
+                })),
         }),
         {
             name: 'resource-store',
             partialize: (state) => ({
                 darkMode: state.darkMode,
                 viewMode: state.viewMode,
+                selectedResourceIds: state.selectedResourceIds,
             }),
         }
     )

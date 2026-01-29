@@ -6,6 +6,9 @@ import { ExternalLink, Github, FileText, Download, ChevronDown, ChevronUp, Check
 import { isNewResource, getTrustScore, getWorkingRatio } from '@/lib/utils';
 import { useResourceStore } from '@/lib/store';
 import { Icon } from '../Icon';
+import { VotingControls } from '../VotingControls';
+
+import { motion } from 'framer-motion';
 
 interface ResourceCardProps {
     resource: Resource;
@@ -29,16 +32,19 @@ export function ResourceCard({ resource }: ResourceCardProps) {
     const isSelected = selectedResourceIds.includes(resource.id);
 
     return (
-        <article className={`border p-4 transition-all hover:shadow-lg relative group/card ${isSelected
+        <motion.article
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`border p-4 transition-all hover:shadow-lg relative group/card ${isSelected
                 ? 'border-primary bg-primary/5 ring-1 ring-primary'
                 : 'border-border bg-card hover:border-primary'
-            }`}>
+                }`}>
             {/* Selection Checkbox (Top Left) */}
             <button
                 onClick={() => toggleResourceSelection(resource.id)}
                 className={`absolute -top-2 -left-2 z-10 p-1.5 rounded-md border shadow-sm transition-all ${isSelected
-                        ? 'bg-primary border-primary text-primary-foreground scale-100 opacity-100'
-                        : 'bg-background border-border text-muted-foreground scale-90 opacity-0 group-hover/card:opacity-100 group-hover/card:scale-100'
+                    ? 'bg-primary border-primary text-primary-foreground scale-100 opacity-100'
+                    : 'bg-background border-border text-muted-foreground scale-90 opacity-0 group-hover/card:opacity-100 group-hover/card:scale-100'
                     }`}
             >
                 {isSelected ? <CheckSquare className="h-3.5 w-3.5" /> : <Square className="h-3.5 w-3.5" />}
@@ -62,6 +68,20 @@ export function ResourceCard({ resource }: ResourceCardProps) {
                             </span>
                         )}
                     </div>
+                </div>
+
+                {/* Trust Score & Voting */}
+                <div className="flex flex-col items-end gap-1">
+                    <VotingControls
+                        resourceId={resource.id}
+                        upvotes={resource.community?.upvotes || 0}
+                        downvotes={resource.community?.downvotes || 0}
+                    />
+                    {trustScore > 0 && (
+                        <div className="text-[9px] font-bold uppercase tracking-tight text-muted-foreground/60 transition-opacity">
+                            {Math.round(trustScore)}% Trust
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -146,6 +166,6 @@ export function ResourceCard({ resource }: ResourceCardProps) {
                     </a>
                 ))}
             </div>
-        </article>
+        </motion.article>
     );
 }

@@ -6,7 +6,7 @@ import { ResourceCard } from './cards/ResourceCard';
 import { MinimalResourceList } from './MinimalResourceList';
 import { Icon } from './Icon';
 import type { Resource, Category } from '@/types';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Rocket, MousePointer2 } from 'lucide-react';
 
 interface ResourceListProps {
     resources: Resource[];
@@ -48,8 +48,20 @@ export function ResourceList({
 
     if (resources.length === 0) {
         return (
-            <div className="text-center py-12">
-                <p className="text-muted-foreground font-mono text-sm tracking-tight italic">No resources matched your criteria.</p>
+            <div className="flex flex-col items-center justify-center py-20 px-4 border border-dashed border-border bg-card/10 text-center animate-in fade-in zoom-in duration-300">
+                <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center mb-4">
+                    <MousePointer2 className="h-6 w-6 text-muted-foreground/30" />
+                </div>
+                <h3 className="text-lg font-bold mb-1 uppercase tracking-tight">No resources found</h3>
+                <p className="text-sm text-muted-foreground max-w-xs mx-auto mb-6">
+                    We couldn&apos;t find any resources matching your current filters or search query.
+                </p>
+                <button
+                    onClick={() => useResourceStore.getState().clearFilters()}
+                    className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest hover:bg-primary/90 transition-all active:scale-95"
+                >
+                    Clear All Filters
+                </button>
             </div>
         );
     }
@@ -180,10 +192,12 @@ export function ResourceList({
                                     </div>
                                 )}
                             </div>
-                        ))}
+                        ))
+                        }
                     </div>
-                ))}
-            </div>
+                ))
+                }
+            </div >
         );
     };
 

@@ -3,14 +3,16 @@
 import { useEffect, useState } from 'react';
 import { useResourceStore } from '@/lib/store';
 import { loadResources, loadCategories, loadTags, loadMetadata } from '@/lib/data';
-import { SearchBar } from '@/components/search/SearchBar';
 import { CategoryGrid } from '@/components/CategoryGrid';
 import { ResourceList } from '@/components/ResourceList';
+import { CategoryCardSkeleton, ResourceCardSkeleton } from '@/components/ui/Skeleton';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function HomePage() {
     const { resources, categories, setResources, setCategories, setTags } = useResourceStore();
     const [stats, setStats] = useState<any>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const loadData = async () => {
@@ -25,6 +27,7 @@ export default function HomePage() {
             setCategories(categoriesData);
             setTags(tagsData);
             if (metaData) setStats(metaData.statistics);
+            setIsLoading(false);
         };
 
         loadData();
@@ -46,82 +49,102 @@ export default function HomePage() {
 
     return (
         <div className="w-full">
-            {/* Hero Section - Sleeker & Minimalist */}
+            {/* Hero Section */}
             <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background to-card">
                 <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center space-y-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="max-w-4xl mx-auto text-center space-y-12"
+                    >
                         <div className="space-y-4">
-                            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-foreground">
+                            <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase">
                                 Resources <span className="text-primary italic">Hub</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                                A premium, community-driven directory of high-quality technical resources, tools, and learning materials.
-                                Manually vetted for excellence.
+                            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
+                                A high-density, community-curated directory of technical tools and learning materials.
+                                <span className="hidden md:inline"> Manually vetted for excellence.</span>
                             </p>
                         </div>
 
-                        {/* Stats - Symmetrical & Sleek */}
-                        <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto border-t border-border/50">
+                        {/* Stats */}
+                        <div className="grid grid-cols-3 gap-8 pt-6 max-w-2xl mx-auto border-t border-border/50">
                             <div className="text-center group">
-                                <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
+                                <div className="text-2xl md:text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
                                     {stats?.totalResources || resources.length}
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1">Total Resources</div>
+                                <div className="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground font-bold mt-1 opacity-70">
+                                    Total Resources
+                                </div>
                             </div>
-                            <div className="text-center group border-x border-border/30 px-6">
-                                <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
+
+                            <div className="text-center group border-x border-border/30 px-4">
+                                <div className="text-2xl md:text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
                                     {usedCategories.length}
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1">Used Categories</div>
-                                <div className="flex items-center justify-center gap-2 mt-2 text-[9px] font-mono text-muted-foreground/60">
-                                    <span className="bg-muted px-1.5 py-0.5 rounded">Total: {categories.length}</span>
-                                    <span className="bg-muted px-1.5 py-0.5 rounded">Unused: {categories.length - usedCategories.length}</span>
+                                <div className="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground font-bold mt-1 opacity-70">
+                                    Used Domains
+                                </div>
+                                <div className="flex items-center justify-center gap-2 mt-2 text-[8px] font-mono text-muted-foreground/40">
+                                    <span className="bg-muted/50 px-1.5 py-0.5 border border-border/50">Total: {categories.length}</span>
+                                    <span className="bg-muted/50 px-1.5 py-0.5 border border-border/50 text-orange-500/60">Unused: {categories.length - usedCategories.length}</span>
                                 </div>
                             </div>
+
                             <div className="text-center group">
-                                <div className="text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
+                                <div className="text-2xl md:text-3xl font-mono font-bold text-foreground group-hover:text-primary transition-colors">
                                     {stats?.verifiedResources || resources.filter(r => r.verified).length}
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mt-1">Verified Entries</div>
+                                <div className="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground font-bold mt-1 opacity-70">
+                                    Verified Entries
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Featured Categories */}
-            {featuredCategories.length > 0 && (
-                <section className="border-b border-border bg-background">
-                    <div className="container mx-auto px-4 py-16">
-                        <div className="flex items-center justify-between mb-8">
-                            <h2 className="text-xl font-bold tracking-tight uppercase border-l-4 border-primary pl-4">
-                                Featured Sections
-                            </h2>
-                            <Link href="/categories" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                                View Categories →
-                            </Link>
-                        </div>
-                        <CategoryGrid categories={featuredCategories} />
+            <section className="border-b border-border bg-background">
+                <div className="container mx-auto px-4 py-16">
+                    <div className="flex items-center justify-between mb-8">
+                        <h2 className="text-xl font-bold tracking-tight uppercase border-l-4 border-primary pl-4">
+                            Featured Sections
+                        </h2>
+                        <Link href="/categories" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                            View Categories →
+                        </Link>
                     </div>
-                </section>
-            )}
+                    {isLoading ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {[...Array(6)].map((_, i) => <CategoryCardSkeleton key={i} />)}
+                        </div>
+                    ) : (
+                        <CategoryGrid categories={featuredCategories} />
+                    )}
+                </div>
+            </section>
 
             {/* Recent Resources */}
-            {recentResources.length > 0 && (
-                <section className="border-b border-border bg-card/30">
-                    <div className="container mx-auto px-4 py-16">
-                        <div className="flex items-center justify-between mb-8">
-                            <h2 className="text-xl font-bold tracking-tight uppercase border-l-4 border-primary pl-4">
-                                Latest Additions
-                            </h2>
-                            <Link href="/resources" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                                Explore All →
-                            </Link>
-                        </div>
-                        <ResourceList resources={recentResources} groupByCategory={false} showPagination={false} />
+            <section className="border-b border-border bg-card/30">
+                <div className="container mx-auto px-4 py-16">
+                    <div className="flex items-center justify-between mb-8">
+                        <h2 className="text-xl font-bold tracking-tight uppercase border-l-4 border-primary pl-4">
+                            Latest Additions
+                        </h2>
+                        <Link href="/resources" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                            Explore All →
+                        </Link>
                     </div>
-                </section>
-            )}
+                    {isLoading ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {[...Array(4)].map((_, i) => <ResourceCardSkeleton key={i} />)}
+                        </div>
+                    ) : (
+                        <ResourceList resources={recentResources} groupByCategory={false} showPagination={false} />
+                    )}
+                </div>
+            </section>
 
             {/* Footer CTA */}
             <section className="bg-background relative">

@@ -47,6 +47,24 @@ export default function ResourcesPage() {
         loadData();
     }, [setResources, setCategories, setTags]);
 
+    // Handle initial URL params (collection and category)
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+
+        // Handle collection sharing
+        const collection = params.get('collection');
+        if (collection) {
+            const ids = collection.split(',');
+            useResourceStore.getState().selectAllVisible(ids);
+        }
+
+        // Handle direct category filtering
+        const categoryParam = params.get('category');
+        if (categoryParam) {
+            setActiveCategoryFilter(categoryParam);
+        }
+    }, [resources.length]); // Re-run when resources are loaded to ensure selections work
+
     // Create search index
     const searchIndex = useMemo(() => {
         if (resources.length === 0) return null;

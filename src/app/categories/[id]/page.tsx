@@ -9,6 +9,10 @@ import { ResourceList } from '@/components/ResourceList';
 import { CategorySidebar } from '@/components/CategorySidebar';
 import { OnThisPage } from '@/components/OnThisPage';
 import { useRouter } from 'next/navigation';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 import type { Category } from '@/types';
 
 interface CategoryPageProps {
@@ -78,18 +82,49 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     }, [visibleCategoryIds, categories, currentCategory]);
 
     if (!currentCategory) {
-        return <div className="container mx-auto px-4 py-12">Category not found</div>;
+        return (
+            <div className="container mx-auto px-4 py-24 text-center space-y-4">
+                <h1 className="text-2xl font-bold">Category not found</h1>
+                <p className="text-muted-foreground">The requested domain doesn&apos;t exist or has been moved.</p>
+                <Link href="/categories" className="inline-flex items-center gap-2 text-primary hover:underline font-bold uppercase text-xs tracking-widest">
+                    <ArrowLeft className="h-4 w-4" />
+                    Back to Categories
+                </Link>
+            </div>
+        );
     }
+
+    const breadcrumbItems: { label: string; href?: string }[] = [
+        { label: 'Categories', href: '/categories' }
+    ];
+
+    if (currentCategory.parentCategory) {
+        const parent = categories.find(c => c.id === currentCategory.parentCategory);
+        if (parent) {
+            breadcrumbItems.push({ label: parent.name, href: `/categories/${parent.id}` });
+        }
+    }
+
+    breadcrumbItems.push({ label: currentCategory.name });
 
     return (
         <div className="min-h-screen bg-background">
             {/* Header */}
             <div className="border-b border-border bg-card">
                 <div className="container mx-auto px-4 py-8">
-                    <h1 className="text-2xl font-bold mb-1">{currentCategory.name}</h1>
-                    <p className="text-sm text-muted-foreground">
-                        {currentCategory.description}
-                    </p>
+                    <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="space-y-4"
+                    >
+                        <Breadcrumbs items={breadcrumbItems} />
+                        <div>
+                            <h1 className="text-3xl font-black uppercase tracking-tighter mb-1">{currentCategory.name}</h1>
+                            <p className="text-sm text-muted-foreground max-w-2xl leading-relaxed font-medium">
+                                {currentCategory.description}
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
 

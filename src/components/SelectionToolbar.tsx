@@ -1,7 +1,7 @@
 'use client';
 
 import { useResourceStore } from '@/lib/store';
-import { Download, X, Copy, FileJson, FileText, Bookmark, CheckSquare } from 'lucide-react';
+import { Download, X, Copy, FileJson, FileText, Bookmark, CheckSquare, Share2, Check } from 'lucide-react';
 import {
     downloadFile,
     convertToCSV,
@@ -13,6 +13,7 @@ import { useState } from 'react';
 export function SelectionToolbar() {
     const { selectedResourceIds, resources, clearSelection } = useResourceStore();
     const [isExporting, setIsExporting] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     if (selectedResourceIds.length === 0) return null;
 
@@ -49,6 +50,14 @@ export function SelectionToolbar() {
 
         downloadFile(content, fileName, contentType);
         setIsExporting(false);
+    };
+
+    const handleShare = () => {
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = `${baseUrl}?collection=${selectedResourceIds.join(',')}`;
+        navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
     };
 
     return (
@@ -96,6 +105,17 @@ export function SelectionToolbar() {
                     >
                         <FileJson className="h-4 w-4" />
                         <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-popover text-popover-foreground text-[10px] px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity">Export JSON</span>
+                    </button>
+
+                    <button
+                        onClick={handleShare}
+                        className="p-2 hover:bg-primary-foreground/10 rounded-full transition-colors group relative"
+                        title="Share this collection"
+                    >
+                        {copied ? <Check className="h-4 w-4 text-green-400" /> : <Share2 className="h-4 w-4" />}
+                        <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-popover text-popover-foreground text-[10px] px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity">
+                            {copied ? 'URL Copied!' : 'Share Collection'}
+                        </span>
                     </button>
                 </div>
 

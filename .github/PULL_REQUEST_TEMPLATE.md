@@ -1,27 +1,30 @@
-## Description
-<!-- Brief description of changes -->
+# 🛠️ Hub Contribution
 
-## Type of Change
-- [ ] New resource submission
-- [ ] Resource update
-- [ ] Bug fix
-- [ ] Feature addition
-- [ ] Documentation update
+## 📝 Description
+<!-- Provide a concise summary of your changes. For new resources, mention the primary domain/category. -->
 
-## Resource Details (if applicable)
-**Resource Name:**
+## 🚦 Type of Change
+- [ ] 🆕 **New Resource**: Adding a high-quality technical tool/site
+- [ ] 🔄 **Resource Update**: Fixing links or updating descriptions
+- [ ] 🐛 **Bug Fix**: UI or logic correction
+- [ ] 🧪 **Core Improvement**: Infrastructure or performance updates
 
-**Categories:**
+## 📊 Resource Details
+<!-- Only fill if adding/updating data -->
+- **ID**: 
+- **Domain**: 
+- **Key Tags**: 
 
-**Why this resource should be added/updated:**
+## ✨ Visual Changes (if applicable)
+<!-- Did you modify the UI? Add screenshots or recordings here. -->
 
-## Checklist
-- [ ] I have read the [Contributing Guidelines](../docs/CONTRIBUTING.md)
-- [ ] My submission follows the JSON schema
-- [ ] All links are working and verified
-- [ ] The resource is not a duplicate
-- [ ] I have tested the changes locally (if code changes)
-- [ ] I have validated the JSON syntax
+## ✅ Contribution Checklist
+- [ ] **Sync Check**: I have run `node scripts/sync-metadata.js` to update global stats.
+- [ ] **Data Schema**: My JSON follows the structure in `public/data/resources/collection/`.
+- [ ] **Verified Links**: All provided URLs are functional (no 404s).
+- [ ] **No Duplicates**: I've ensured this resource is not already listed.
+- [ ] **Build Check**: I've run `npm run build` locally and it passes.
+- [ ] **Linter Check**: No unescaped entities or syntax errors.
 
-## Additional Notes
-<!-- Any additional information, context, or screenshots -->
+## 🗒️ Additional Notes
+<!-- Any other context or motivation behind this PR? -->

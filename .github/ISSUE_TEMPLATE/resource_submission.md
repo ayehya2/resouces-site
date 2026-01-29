@@ -1,73 +1,43 @@
 ---
-name: Resource Submission
-about: Submit a new resource to the directory
-title: '[RESOURCE] '
+name: 🆕 Resource Submission
+about: Add a high-quality tool, site, or guide to the Hub
+title: '[RESOURCE] <Name of Resource>'
 labels: resource-submission
 assignees: ''
 ---
 
-## Resource Information
+## 💎 Resource Overview
 
 **Resource Name:**
+<!-- e.g., uBlock Origin -->
 
+**Direct URL:**
+<!-- e.g., https://ublockorigin.com -->
 
-**Short Description (1-2 sentences):**
+**Tagline (1 sentence):**
+<!-- e.g., A powerful, efficient, and open-source ad blocker. -->
 
+**Detailed Description:**
+<!-- What does it do? Why is it useful for the technical community? -->
 
-**Long Description (detailed explanation):**
+## 📊 Data Mapping
 
+**Target Domain(s):**
+<!-- e.g., Cybersecurity, Privacy, Web Development. Refer to our Category list on the site. -->
 
-**Official Links:**
-- Website: 
-- GitHub: (if applicable)
-- Documentation: (if applicable)
-- Other: (if applicable)
+**Tags:**
+<!-- Comma-separated: e.g., opensource, adblock, privacy -->
 
-**Categories** (select all that apply):
-- [ ] Artificial Intelligence
-- [ ] Cybersecurity
-- [ ] Hacking Tools
-- [ ] Digital Forensics
-- [ ] Privacy & Anonymity
-- [ ] Networking
-- [ ] Web Development
-- [ ] Databases
-- [ ] Operating Systems
-- [ ] Linux
-- [ ] Programming Languages
-- [ ] Algorithms & Data Structures
-- [ ] APIs
-- [ ] Datasets
-- [ ] Mathematics
-- [ ] Certifications
-- [ ] GitHub Repositories
-- [ ] Software
-- [ ] Useful Websites
-- [ ] YouTube Channels
-- [ ] Domains
-- [ ] NAS & Backup
-- [ ] Monitoring
-- [ ] Security
-- [ ] Ethical Hacking
-- [ ] Miscellaneous
+**Metadata:**
+- **License**: <!-- e.g., MIT, GPL, Proprietary -->
+- **Pricing**: <!-- free / freemium / paid -->
+- **Self-Hostable**: <!-- yes / no -->
+- **Requires Signup**: <!-- yes / no -->
 
-**Tags** (comma-separated):
+## ✅ Verification
+- [ ] I have checked that the link is functional and safe.
+- [ ] I have confirmed this resource is not already listed in the Hub.
+- [ ] I am not affiliated with this resource (or have disclosed if I am).
 
-
-**Additional Metadata:**
-- Platform: [e.g., web, desktop, mobile, cli]
-- License: [e.g., MIT, GPL, Proprietary]
-- Pricing: [free/freemium/paid/subscription]
-- Open Source: [yes/no]
-- Requires Signup: [yes/no]
-- Self-Hostable: [yes/no]
-
-**Why should this resource be added?**
-
-
-**Checklist:**
-- [ ] I have verified this resource is legitimate and not a scam
-- [ ] All links are working and accessible
-- [ ] The resource provides value to the community
-- [ ] I have searched and confirmed this resource is not already listed
-- [ ] The information provided is accurate and up-to-date
+## 🗒️ Additional Context
+<!-- Any other reasons why this is a "must-have" for the directory? -->

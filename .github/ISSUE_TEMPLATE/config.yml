@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Community Discussions
+    url: https://github.com/ayehya2/resouces-site/discussions
+    about: Ask questions, share ideas, and get help from the community.
+  - name: 🚀 Developer Support
+    url: https://github.com/ayehya2/resouces-site/issues/new?template=bug_report.md
+    about: Report technical issues with the site infrastructure.

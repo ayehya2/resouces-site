@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export function Footer() {
     return (
         <footer className="border-t border-border bg-card">
@@ -16,19 +18,19 @@ export function Footer() {
                         <h4 className="font-medium mb-3">Navigate</h4>
                         <ul className="space-y-2 text-sm">
                             <li>
-                                <a href="/resources" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/resources" className="text-muted-foreground hover:text-foreground transition-colors">
                                     Browse Resources
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="/categories" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/categories" className="text-muted-foreground hover:text-foreground transition-colors">
                                     Categories
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="/submit" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/submit" className="text-muted-foreground hover:text-foreground transition-colors">
                                     Submit Resource
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -38,19 +40,19 @@ export function Footer() {
                         <h4 className="font-medium mb-3">Resources</h4>
                         <ul className="space-y-2 text-sm">
                             <li>
-                                <a href="/docs" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/docs" className="text-muted-foreground hover:text-foreground transition-colors">
                                     Documentation
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="https://github.com/ayehya2/resouces-site" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <a href="https://github.com/ayehya2/resouces-site" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                                     GitHub
                                 </a>
                             </li>
                             <li>
-                                <a href="/changelog" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/changelog" className="text-muted-foreground hover:text-foreground transition-colors">
                                     Changelog
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -60,14 +62,14 @@ export function Footer() {
                         <h4 className="font-medium mb-3">Legal</h4>
                         <ul className="space-y-2 text-sm">
                             <li>
-                                <a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
                                     Privacy Policy
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="/license" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <Link href="/license" className="text-muted-foreground hover:text-foreground transition-colors">
                                     MIT License
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
